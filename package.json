@@ -19,8 +19,12 @@
     "es6",
     "react-family"
   ],
-  "author": "brickspert",
+  "author": "liangjiang",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myDancer/my-singer-music.git"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
