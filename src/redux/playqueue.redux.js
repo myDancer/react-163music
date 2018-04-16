@@ -163,11 +163,11 @@ export const playSong2Que = s => (dispatch, getState) => {
         }
         dispatch(playSongAct(song))
       } else {
-        alert('歌曲直链不存在')
+        console.log('歌曲直链不存在')
       }
     })
     .catch((err) => {
-      alert(`获取歌曲链接是发生错误：${err}`)
+      console.log(`获取歌曲链接是发生错误：${err}`)
     })
 }
 
@@ -188,10 +188,10 @@ export const addSong2Que = s => (dispatch, getState) => {
         }
         dispatch(addSongAct(song))
       } else {
-        alert('歌曲直链不存在')
+        console.log('歌曲直链不存在')
       }
     })
     .catch((err) => {
-      alert(`获取歌曲链接是发生错误：${err}`)
+      console.log(`获取歌曲链接是发生错误：${err}`)
     })
 }
