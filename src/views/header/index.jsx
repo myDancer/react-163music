@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import NavItem from './navItem'
 import Search from './search'
+import Login from './login'
+import SubNav from './subNav'
 import './style.styl'
 
 export default class Header extends React.Component {
@@ -29,8 +31,11 @@ export default class Header extends React.Component {
             {routes.map(route =>
               (<NavItem key={route.name} route={route} />))}
           </ul>
+          <Login />
+          <a className="header-link" href="http://music.163.com/login?targetUrl=%2Fuservideo">视频投稿</a>
           <Search />
         </div>
+        <SubNav />
       </div>
     )
   }
