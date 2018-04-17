@@ -1,0 +1,37 @@
+.header-input-wrapper{
+  float: left ;
+  height :32px;
+  width: 158px;
+  margin-top: 19px;
+  background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?5d0608231148ecb2b9bc4bb8a8cdc2a4) no-repeat 0 9999px;
+  background-position: 0 -99px;
+  background-color: #fff;
+  border-radius: 32px;
+  position: relative;
+  .header-input{
+    background: transparent;
+    position: absolute;
+    top: 8px;
+    left: 30px;
+    border: 0;
+    outline: 0;
+    width :80%;
+    height: 16px;
+    &:active {
+      border: 1px;
+      .header-label {
+        display: none;  
+      }
+    }
+  }
+  .header-label {
+    cursor: text;
+    font-size: 12px;
+    line-height: 16px;
+    display: block; 
+    position: absolute;
+    color: #9b9b9b;
+    top: 8px;
+    left: 30px;
+  }
+}

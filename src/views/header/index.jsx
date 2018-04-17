@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import NavItem from './navItem'
+import Search from './search'
 import './style.styl'
 
 export default class Header extends React.Component {
@@ -19,8 +20,8 @@ export default class Header extends React.Component {
     const routes = this.routes
     console.log(routes)
     return (
-      <div>
-        <div className="header">
+      <div className="header">
+        <div className="header-wrapper">
           <Link className="logo" to={{ pathname: '/' }}>
             MYSINGER
           </Link>
@@ -28,6 +29,7 @@ export default class Header extends React.Component {
             {routes.map(route =>
               (<NavItem key={route.name} route={route} />))}
           </ul>
+          <Search />
         </div>
       </div>
     )
