@@ -10,7 +10,7 @@ export default class Header extends React.Component {
   constructor() {
     super()
     this.routes = [
-      { url: '/find', name: '发现音乐' },
+      { url: '/discover', name: '发现音乐' },
       { url: '/mymusic', name: '我的音乐' },
       { url: '/friends', name: '朋友' },
       { url: '/shop', name: '商场' },
@@ -20,7 +20,6 @@ export default class Header extends React.Component {
   }
   render() {
     const routes = this.routes
-    console.log(routes)
     return (
       <div className="header">
         <div className="header-wrapper">
@@ -40,4 +39,3 @@ export default class Header extends React.Component {
     )
   }
 }
-

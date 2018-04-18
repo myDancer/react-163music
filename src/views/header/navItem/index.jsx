@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import './style.styl'
 
 class NavItem extends React.Component {
@@ -10,9 +10,10 @@ class NavItem extends React.Component {
   render() {
     const route = this.route
     let showTrangle = null
-    showTrangle = <div className="nav-trangle" />
-
+    if (this.props.location.pathname === route.url) {
+      showTrangle = <div className="nav-trangle" />
+    }
     return <li><NavLink to={route.url} activeClassName="selected">{route.name}</NavLink>{showTrangle}</li>
   }
 }
-export default NavItem
+export default withRouter(NavItem)

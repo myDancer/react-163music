@@ -1,7 +1,8 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import './style.styl'
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props)
     this.subMenu = [
@@ -15,14 +16,25 @@ export default class Login extends React.Component {
   }
   render() {
     const subMenu = this.subMenu
-    return (
-      <div className="subnav">
-        <div className="subnav-wrapper">
-          <ul>
-            {subMenu.map(item => <li key={item.id} className="subnav-item"><span>{item.name}</span></li>)}
-          </ul>
+    let subNav
+    if (this.props.location.pathname === '/discover') {
+      subNav = (
+        <div className="subnav">
+          <div className="subnav-wrapper">
+            <ul className="subnav-ul">
+              {subMenu.map(item => <li key={item.id} className="subnav-item"><span>{item.name}</span></li>)}
+            </ul>
+          </div>
         </div>
+      )
+    } else {
+      subNav = <div className="subLine" />
+    }
+    return (
+      <div>
+        {subNav}
       </div>
     )
   }
 }
+export default withRouter(Login)
