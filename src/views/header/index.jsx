@@ -11,8 +11,8 @@ export default class Header extends React.Component {
     super()
     this.routes = [
       { url: '/discover', name: '发现音乐' },
-      { url: '/mymusic', name: '我的音乐' },
-      { url: '/friends', name: '朋友' },
+      { url: '/my', name: '我的音乐' },
+      { url: '/friend', name: '朋友' },
       { url: '/shop', name: '商场' },
       { url: '/musicpepole', name: '音乐人' },
       { url: '/download', name: '下载客户端' },

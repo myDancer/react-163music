@@ -1,10 +1,12 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+import SubMenuItem from './subNavItem'
 import './style.styl'
 
+
 class Login extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.subMenu = [
       { name: '推荐', id: '1' },
       { name: '排行榜', id: '2' },
@@ -17,12 +19,12 @@ class Login extends React.Component {
   render() {
     const subMenu = this.subMenu
     let subNav
-    if (this.props.location.pathname === '/discover') {
+    if (this.props.location.pathname.indexOf('/discover') !== -1) {
       subNav = (
         <div className="subnav">
           <div className="subnav-wrapper">
             <ul className="subnav-ul">
-              {subMenu.map(item => <li key={item.id} className="subnav-item"><span>{item.name}</span></li>)}
+              {subMenu.map(item => <SubMenuItem subMenu={item} key={item.id} />)}
             </ul>
           </div>
         </div>

@@ -10,7 +10,7 @@ class NavItem extends React.Component {
   render() {
     const route = this.route
     let showTrangle = null
-    if (this.props.location.pathname === route.url) {
+    if (this.props.location.pathname.indexOf(route.url) !== -1) {
       showTrangle = <div className="nav-trangle" />
     }
     return <li><NavLink to={route.url} activeClassName="selected">{route.name}</NavLink>{showTrangle}</li>
