@@ -47,7 +47,13 @@ export const fetchSwiperImg = () => (dispatch) => {
   axios
     .get(swiperUrl)
     .then((res) => {
-      dispatch(fetchEndAct(res.data))
+      const images = []
+      if (res.data.length > 0) {
+        for (let i = 0; i < res.data.length; i += 1) {
+          images.push(res.data[i].imgurl)
+        }
+      }
+      dispatch(fetchEndAct(images))
     })
     .catch((err) => {
       console.log('====================================')
