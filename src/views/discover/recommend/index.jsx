@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchSwiperImg } from '../../../redux/swiper.redux'
 import Swiper from '../../../component/Swiper'
+import DownLoad from '../download'
 import './style.styl'
 
 @connect( // 将store和组件联系在一起
@@ -23,10 +24,14 @@ class Recommend extends React.Component {
     this.child = ref
   }
   leftButtonClick = () => {
-    this.child.prev()
+    if (this.props.swiperObj.length) {
+      this.child.prev()
+    }
   }
   rightButtonClick = () => {
-    this.child.next()
+    if (this.props.swiperObj.length) {
+      this.child.next()
+    }
   }
   render() {
     const { items } = this.props.swiperObj
@@ -41,7 +46,7 @@ class Recommend extends React.Component {
         <div className="swiper-content">
           <div className="img-wrapper">
             {swiper}
-            <div className="download" />
+            <DownLoad />
           </div>
           <a className="banner-btn left-btn" onClick={this.leftButtonClick}>&gt;</a>
           <a className="banner-btn right-btn" onClick={this.rightButtonClick}>&lt;</a>
