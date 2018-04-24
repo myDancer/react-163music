@@ -5,14 +5,18 @@
   right: -1px;
   width: 254px;
   height: 336px;
-  background: url(http://s2.music.126.net/style/web2/img/index/download.png?38229218688f222869f03ceca64e1a99) no-repeat 0 0;
+  background: url(http://s2.music.126.net/style/web2/img/index/download.png) no-repeat 0 0;
   .download-btn
     display: block;
     width: 215px;
     height: 56px;
     margin: 212px 0 0 19px;
+    background: url(http://s2.music.126.net/style/web2/img/index/download.png) no-repeat 0 0;
     background-position: 0 9999px;
     text-indent: -9999px;
+    &:hover
+      background-position: 0 -340px;
+      text-decoration: none;
   & > p
     margin: 10px auto;
     text-align: center;
