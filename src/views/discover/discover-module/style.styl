@@ -1,11 +1,25 @@
 .discover-module
   width: 980px;
   min-height: 700px;
-  _height: 700px;
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid #d3d3d3;
   border-width: 0 1px;
-  .g-wrap
-    padding: 20px 20px 40px;
-    margin-right: 251px;
+  &:after
+    content: '.';
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+  .l-wrap
+    float: left;
+    width: 100%
+    margin-right: -250px;
+    .l-wrap1
+      padding: 20px 20px 40px;
+      margin-right: 251px;
+  .r-wrap
+    position: relative;
+    float: right;
+    width: 250px;
+    zoom: 1;

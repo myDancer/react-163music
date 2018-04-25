@@ -41,12 +41,16 @@ const DiscoverModule = () => {
   ]
   return (
     <div className="discover-module">
-      <div className="g-wrap">
-        <Toolbar toolbar={toolbar} />
-        <SongList songList={songList} />
+      <div className="l-wrap">
+        <div className="l-wrap1">
+          <Toolbar toolbar={toolbar} />
+          <SongList songList={songList} />
+        </div>
       </div>
-      <Login />
-      <SingerList />
+      <div className="r-wrap">
+        <Login />
+        <SingerList />
+      </div>
     </div>
   )
 }
