@@ -39,6 +39,23 @@ const DiscoverModule = () => {
       imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './123', title: '时光里，我们都是赶路人', playNum: '24w',
     },
   ]
+  const singerList = [
+    {
+      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './123', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+    },
+    {
+      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './123', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+    },
+    {
+      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './123', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+    },
+    {
+      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './123', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+    },
+    {
+      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './123', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+    },
+  ]
   return (
     <div className="discover-module">
       <div className="l-wrap">
@@ -49,7 +66,7 @@ const DiscoverModule = () => {
       </div>
       <div className="r-wrap">
         <Login />
-        <SingerList />
+        <SingerList singerList={singerList} />
       </div>
     </div>
   )
