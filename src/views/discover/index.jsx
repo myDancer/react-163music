@@ -1,9 +1,13 @@
 import React from 'react'
 import Recommend from './recommend'
+import DiscoverModule from './discover-module'
 import './style.styl'
 
-const Find = () =>
+const Discover = () =>
   (
-    <Recommend />
+    <div>
+      <Recommend />
+      <DiscoverModule />
+    </div>
   )
-export default Find
+export default Discover
