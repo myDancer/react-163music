@@ -22,6 +22,9 @@ export default function SingerList(props) {
           </li>
         ))}
       </ul>
+      <div>
+        <Link className="besinger" to="./besinger"><i className="bs-btn">申请成为音乐人</i></Link>
+      </div>
     </div>
   )
 }

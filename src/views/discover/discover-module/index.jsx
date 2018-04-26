@@ -3,6 +3,7 @@ import Toolbar from '../toolbar'
 import SongList from '../songlist'
 import Login from '../login'
 import SingerList from '../singerlist'
+import NewDisk from '../newDisk'
 import './style.styl'
 
 const DiscoverModule = () => {
@@ -18,45 +19,62 @@ const DiscoverModule = () => {
   }
   const songList = [
     {
-      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './123', title: '时光里，我们都是赶路人', playNum: '24w',
+      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './1', title: '时光里，我们都是赶路人', playNum: '24w',
     },
     {
-      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './123', title: '时光里，我们都是赶路人', playNum: '24w',
+      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './2', title: '时光里，我们都是赶路人', playNum: '24w',
     },
     {
-      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './123', title: '时光里，我们都是赶路人', playNum: '24w',
+      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './3', title: '时光里，我们都是赶路人', playNum: '24w',
     },
     {
-      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './123', title: '时光里，我们都是赶路人', playNum: '24w',
+      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './4', title: '时光里，我们都是赶路人', playNum: '24w',
     },
     {
-      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './123', title: '时光里，我们都是赶路人', playNum: '24w',
+      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './5', title: '时光里，我们都是赶路人', playNum: '24w',
     },
     {
-      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './123', title: '时光里，我们都是赶路人', playNum: '24w',
+      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './6', title: '时光里，我们都是赶路人', playNum: '24w',
     },
     {
-      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './123', title: '时光里，我们都是赶路人', playNum: '24w',
+      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './7', title: '时光里，我们都是赶路人', playNum: '24w',
     },
     {
-      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './123', title: '时光里，我们都是赶路人', playNum: '24w',
+      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './8', title: '时光里，我们都是赶路人', playNum: '24w',
     },
   ]
   const singerList = [
     {
-      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './123', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './1', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
     },
     {
-      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './123', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './2', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
     },
     {
-      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './123', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './3', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
     },
     {
-      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './123', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './4', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
     },
     {
-      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './123', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+      avatar: 'http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62', link: './5', name: '张惠妹aMEI', label: '台湾歌手张惠妹',
+    },
+  ]
+  const diskList = [
+    {
+      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: './1',
+    },
+    {
+      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: './2',
+    },
+    {
+      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: './3',
+    },
+    {
+      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: './4',
+    },
+    {
+      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: './5',
     },
   ]
   return (
@@ -68,7 +86,11 @@ const DiscoverModule = () => {
         </div>
         <div className="l-wrap1">
           <Toolbar toolbar={{ title: '新碟上架' }} />
-          <SongList songList={songList} />
+          <NewDisk diskList={diskList} />
+        </div>
+        <div className="l-wrap1">
+          <Toolbar toolbar={{ title: '榜单' }} />
+          <NewDisk diskList={diskList} />
         </div>
       </div>
       <div className="r-wrap">

@@ -7,7 +7,7 @@ export default function SongList(props) {
     <div>
       <ul className="songlist">
         {props.songList.map(item => (
-          <li className="song-item">
+          <li className="song-item" key={item.link}>
             <div className="item">
               <img alt="fengmian" src={item.imgUrl} />
               <Link className="item-a" to={item.link} />

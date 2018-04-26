@@ -1,0 +1,70 @@
+.newdisk
+  position: relative;
+  zoom: 1;
+  height: 186px;
+  margin: 20px 0 37px;
+  border: 1px solid #d3d3d3;
+  .inner
+    height: 184px;
+    padding-left: 16px;
+    background: #f5f5f5;
+    border: 1px solid #fff;
+    .disk-next
+      position: absolute;
+      top: 71px;
+      width: 17px;
+      height: 17px;
+      background: url(http://s2.music.126.net/style/web2/img/index/index.png)no-repeat 0 9999px;
+    .l-btn
+      left: 4px;
+      background-position: -260px -75px;
+      &:hover
+        background-position: -280px -75px;
+    .r-btn
+      background-position: -300px -75px;
+      &:hover
+        background-position: -320px -75px;
+    .n-disk
+      float: left;
+      width: 645px;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+      zoom: 1;
+      & > ul
+        position: absolute;
+        top: 0;
+        width: 645px;
+        margin: 28px 0 0 0;
+        & > li
+          float: left;
+          display: inline;
+          width: 118px;
+          height: 150px;
+          margin-left: 11px;
+          background: url(http://s2.music.126.net/style/web2/img/index/index.png)
+          background-position: -260px 100px;
+          font-size: 12px;
+          & > p
+            width: 90%;
+            line-height: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+            .disk-link
+              font-size: 12px;
+              &:hover
+                text-decoration: underline;
+            .disk-link-1
+              color: #000;
+            .disk-link-2
+              color: #666;
+          .bg-img
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 118px;
+            height: 100px;
+            background: url(http://s2.music.126.net/style/web2/img/coverall.png)
+            background-position: 0 -570px;

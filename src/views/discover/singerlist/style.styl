@@ -16,6 +16,12 @@
         text-decoration: underline;
   .singer
     margin: 6px 0 14px 20px;
+    &:after
+      clear: both;
+      content: '.';
+      display: block;
+      height: 0;
+      visibility: hidden;
     .singer-item
       margin-top: 14px;
       float: left;
@@ -49,3 +55,36 @@
           width: 90%;
           margin-top: 8px;
           color: #666;
+  .besinger
+    background: url(http://s2.music.126.net/style/web2/img/button2.png)
+    background-position: right -100px;
+    margin-left: 20px;
+    border-radius: 4px;
+    color: #333;
+    display: inline-block;
+    height: 31px;
+    line-height: 31px;
+    overflow: hidden;
+    vertical-align: top;
+    text-align: center;
+    cursor: pointer;
+    padding: 0 5px 0 0;
+    &:hover
+      background-position: right -182px;
+    .bs-btn
+      width: 170px;
+      font-weight: bold;
+      display: inline-block;
+      height: 31px;
+      line-height: 31px;
+      overflow: hidden;
+      vertical-align: top;
+      text-align: center;
+      cursor: pointer;
+      color: #333;
+      background: url(http://s2.music.126.net/style/web2/img/button2.png)
+      background-position: 0 -59px;
+      padding: 0 15px 0 20px;
+      font-style:normal
+      &:hover
+        background-position: 0 -141px;
