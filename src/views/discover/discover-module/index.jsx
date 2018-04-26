@@ -5,6 +5,7 @@ import Login from '../login'
 import SingerList from '../singerlist'
 import NewDisk from '../newDisk'
 import HotDj from '../hotDJ'
+import BillList from '../billlist'
 import './style.styl'
 
 const DiscoverModule = () => {
@@ -96,7 +97,7 @@ const DiscoverModule = () => {
         </div>
         <div className="l-wrap1">
           <Toolbar toolbar={{ title: '榜单' }} />
-          <NewDisk diskList={diskList} />
+          <BillList />
         </div>
       </div>
       <div className="r-wrap">
