@@ -10,8 +10,11 @@ const NewDisk = props => (
         <ul>
           {props.diskList.map(item => (
             <li key={item.link}>
-              <img alt="图片" src={item.imgUrl} />
-              <Link className="bg-img" to={item.link} />
+              <div className="img-wrap">
+                <img alt="图片" src={item.imgUrl} />
+                <Link className="bg-img" to={item.link} />
+                <div className="play-img" />
+              </div>
               <p><Link className="disk-link-1 disk-link" to={item.link}>{item.title}</Link></p>
               <p><Link className="disk-link-2 disk-link" to={item.link}>{item.name}</Link></p>
             </li>
