@@ -20,22 +20,17 @@ class Recommend extends React.Component {
     if (!items.length) {
       this.props.fetchSwiperImg()
     }
-    // axios
-    //   .get('/getSwiper', { dataType: 'json' })
-    //   .then((res) => {
-    //     console.log(res)
-    //   })
   }
   onRef = (ref) => {
     this.child = ref
   }
   leftButtonClick = () => {
-    if (this.props.swiperObj.length) {
+    if (this.props.swiperObj.items.length) {
       this.child.prev()
     }
   }
   rightButtonClick = () => {
-    if (this.props.swiperObj.length) {
+    if (this.props.swiperObj.items.length) {
       this.child.next()
     }
   }
