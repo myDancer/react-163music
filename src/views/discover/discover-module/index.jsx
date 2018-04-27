@@ -84,6 +84,62 @@ const DiscoverModule = () => {
       imgUrl: 'http://p1.music.126.net/H3QxWdf0eUiwmhJvA4vrMQ==/1407374893913311.jpg?param=40y40', title: '心理学家、美食家陈立教授', name: '陈立', link: './5',
     },
   ]
+  const billList = [
+    {
+      imgUrl: 'http://p4.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=100y100',
+      billTitle: '云音乐飙升榜',
+      name: '陈立',
+      link: './1',
+      singList: [
+        { songName: '你打不过我吧', link: '/123' },
+        { songName: '你打不过我吧', link: '/1231' },
+        { songName: '你打不过我吧', link: '/1232' },
+        { songName: '你打不过我吧', link: '/1233' },
+        { songName: '你打不过我吧', link: '/1234' },
+        { songName: '你打不过我吧', link: '/1235' },
+        { songName: '你打不过我吧', link: '/1236' },
+        { songName: '你打不过我吧', link: '/1237' },
+        { songName: '你打不过我吧', link: '/1238' },
+        { songName: '你打不过我吧', link: '/1239' },
+      ],
+    },
+    {
+      imgUrl: 'http://p4.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=100y100',
+      billTitle: '云音乐飙升榜',
+      name: '陈立',
+      link: './2',
+      singList: [
+        { songName: '你打不过我吧', link: '/123' },
+        { songName: '你打不过我吧', link: '/1231' },
+        { songName: '你打不过我吧', link: '/1232' },
+        { songName: '你打不过我吧', link: '/1233' },
+        { songName: '你打不过我吧', link: '/1234' },
+        { songName: '你打不过我吧', link: '/1235' },
+        { songName: '你打不过我吧', link: '/1236' },
+        { songName: '你打不过我吧', link: '/1237' },
+        { songName: '你打不过我吧', link: '/1238' },
+        { songName: '你打不过我吧', link: '/1239' },
+      ],
+    },
+    {
+      imgUrl: 'http://p4.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=100y100',
+      billTitle: '云音乐飙升榜',
+      name: '陈立',
+      link: './3',
+      singList: [
+        { songName: '你打不过我吧', link: '/123' },
+        { songName: '你打不过我吧', link: '/1231' },
+        { songName: '你打不过我吧', link: '/1232' },
+        { songName: '你打不过我吧', link: '/1233' },
+        { songName: '你打不过我吧', link: '/1234' },
+        { songName: '你打不过我吧', link: '/1235' },
+        { songName: '你打不过我吧', link: '/1236' },
+        { songName: '你打不过我吧', link: '/1237' },
+        { songName: '你打不过我吧', link: '/1238' },
+        { songName: '你打不过我吧', link: '/1239' },
+      ],
+    },
+  ]
   return (
     <div className="discover-module">
       <div className="l-wrap">
@@ -97,7 +153,7 @@ const DiscoverModule = () => {
         </div>
         <div className="l-wrap1">
           <Toolbar toolbar={{ title: '榜单' }} />
-          <BillList />
+          <BillList billList={billList} />
         </div>
       </div>
       <div className="r-wrap">

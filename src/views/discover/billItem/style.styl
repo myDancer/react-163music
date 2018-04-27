@@ -1,0 +1,85 @@
+.bill-item
+  float left
+  width 230px
+  font-size: 12px;
+  &:last-child
+    width: 228px;
+  .bill-top
+    height: 100px;
+    padding: 20px 0 0 19px;
+    .i-wrap
+      float left
+      position: relative;
+      img
+        width: 80px;
+        height: 80px;
+      .msk
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(http://s2.music.126.net/style/web2/img/coverall.png)
+        background-position: -145px -57px;
+    .t-wrap
+      float left
+      width: 116px;
+      margin: 6px 0 0 10px;
+      .title
+        font-size: 14px;
+        color: #333;
+        &:hover
+          text-decoration: underline;
+      .btn
+        margin-top: 10px;
+        .t-icn
+          display: block;
+          float: left;
+          width: 22px;
+          height: 22px;
+          margin-right: 10px;
+          text-indent: -9999px;
+          background: url(http://s2.music.126.net/style/web2/img/index/index.png)
+        .icn-play
+          background-position: -267px -205px;
+          &:hover
+            background-position: -267px -235px;
+        .icn-collect
+          background-position: -300px -205px;
+          &:hover
+            background-position: -300px -235px;
+  ol
+    height: 319px;
+    margin-left: 50px;
+    line-height: 32px;
+    li
+      height: 32px;
+      color: #666;
+      &:nth-of-type(1),&:nth-of-type(2),&:nth-of-type(3)
+        color: #c10d0c;
+      .nm
+        float: left;
+        width: 170px;
+        height: 32px;
+        vertical-align: middle;
+        color: #000;
+        line-height: 32px;
+      .nr
+        float: left;
+        position: relative;
+        width: 35px;
+        height: 32px;
+        margin-left: -35px;
+        text-align: center;
+        font-size: 16px;
+        vertical-align: middle;
+  .more
+    clear: both;
+    height: 32px;
+    margin-right: 32px;
+    text-align: right;
+    line-height: 32px;
+    a
+      color: #000;
+      &:hover
+        text-decoration: underline;
