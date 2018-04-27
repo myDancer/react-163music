@@ -24,7 +24,7 @@ export function lyricUrl(id) {
 }
 
 // 轮播图
-export const swiperUrl = 'http://112.74.56.114:8888/NetEaseMusicServer/image'
+export const swiperUrl = '/getSwiper'
 
 
 // 排行榜

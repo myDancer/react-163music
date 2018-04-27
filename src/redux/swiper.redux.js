@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { swiperUrl } from '../config/api'
+import '../config/mock'
 // constant
 const SWIPER_FETCH_START = 'SWIPER_FETCH_START'
 const SWIPER_FETCH_END = 'SWIPER_FETCH_END'
@@ -45,12 +46,12 @@ const fetchEndAct = items => ({
 export const fetchSwiperImg = () => (dispatch) => {
   dispatch(fetchStartAct())
   axios
-    .get(swiperUrl)
+    .get(swiperUrl, { dataType: 'json' })
     .then((res) => {
       const images = []
       if (res.data.length > 0) {
         for (let i = 0; i < res.data.length; i += 1) {
-          images.push(res.data[i].imgurl)
+          images.push(res.data[i].img)
         }
       }
       dispatch(fetchEndAct(images))

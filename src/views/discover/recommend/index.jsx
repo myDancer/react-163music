@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+// import axios from 'axios'
 import { fetchSwiperImg } from '../../../redux/swiper.redux'
 import Swiper from '../../../component/Swiper'
 import DownLoad from '../download'
@@ -19,6 +20,11 @@ class Recommend extends React.Component {
     if (!items.length) {
       this.props.fetchSwiperImg()
     }
+    // axios
+    //   .get('/getSwiper', { dataType: 'json' })
+    //   .then((res) => {
+    //     console.log(res)
+    //   })
   }
   onRef = (ref) => {
     this.child = ref
