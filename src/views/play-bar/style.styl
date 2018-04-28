@@ -1,0 +1,160 @@
+.playbar-wrap
+  position: fixed;
+  zoom: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  width: 100%;
+  z-index: 1002;
+  font-size: 12px;
+  .playbar
+    visibility: visible;
+    position: absolute;
+    zoom: 1;
+    top: -53px;
+    left: 0;
+    width: 100%;
+    height: 53px;
+    margin: 0 auto;
+    .bg
+      height: 53px;
+      zoom: 1;
+      margin-right: 67px;
+      background: url(http://s2.music.126.net/style/web2/img/frame/playbar.png)
+      background-position: 0 0;
+      background-repeat: repeat-x;
+    .wrap
+      margin-left: -498.5px;
+      position: absolute;
+      left: 50%;
+      top: 6px;
+      z-index: 15;
+      width: 980px;
+      height: 47px;
+      margin: 0 auto;
+      margin-left: -490px;
+      .btns
+        width: 137px;
+        padding: 6px 0 0 0;
+        float: left;
+        .play-btn
+          background: url(http://s2.music.126.net/style/web2/img/frame/playbar.png)
+          display: block;
+          float: left;
+          width: 28px;
+          height: 28px;
+          margin-right: 8px;
+          margin-top: 5px;
+          text-indent: -9999px;
+          outline: 0;
+          border: 0;
+          cursor: pointer;
+        .btn-p
+          background-position: 0 -130px;
+          &:hover
+            background-position: -30px -130px;
+        .btn-s
+          width: 36px;
+          height: 36px;
+          margin-top: 0;
+          background-position: 0 -204px;
+          &:hover
+            background-position: -40px -204px;
+        .btn-n
+          background-position: -80px -130px;
+          &:hover
+            background-position: -110px -130px;
+      .headimg
+        position: relative;
+        margin: 6px 15px 0 0;
+        width: 34px;
+        height: 34px;
+        float: left;
+      .play
+        position: relative;
+        width: 608px;
+        float: left;
+        .wrods
+          height: 28px;
+          overflow: hidden;
+          color: #e8e8e8;
+          text-shadow: 0 1px 0 #171717;
+          line-height: 28px;
+          .wrods-img1
+            float: left;
+          span
+            float: left;
+            max-width: 220px;
+            margin-left: 15px;
+            color: #9b9b9b;
+          .wrods-img2
+            float: left;
+            width: 14px;
+            height: 15px;
+            margin: 7px 0 0 13px;
+            background: url(http://s2.music.126.net/style/web2/img/frame/playbar.png)
+            background-position: -110px -103px;
+        .pbar
+          position: relative;
+          width: 493px;
+          .barbg
+            background: url(http://s2.music.126.net/style/web2/img/frame/statbar.png)
+            height: 9px;
+            background-position: right 0;
+            .cur
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 1%;
+              height: 9px;
+              background: url(http://s2.music.126.net/style/web2/img/frame/statbar.png)
+              background-position: left -66px;
+              .cur-btn
+                position: absolute;
+                top: -7px;
+                right: -13px;
+                width: 22px;
+                height: 24px;
+                margin-left: -11px;
+                background: url(http://s2.music.126.net/style/web2/img/iconall.png)
+                background-position: 0 -250px;
+                i
+                  visibility: hidden;
+                  position: absolute;
+                  left: 5px;
+                  top: 5px;
+                  width: 12px;
+                  height: 12px;
+                  background: url(http://s2.music.126.net/style/web2/img/outchain/loading.gif);
+    .updown
+      display: block;
+      .updown-left
+        position: absolute;
+        top: -14px;
+        right: 15px;
+        width: 52px;
+        height: 67px;
+        background: url(http://s2.music.126.net/style/web2/img/frame/playbar.png)
+        background-position: 0 -380px;
+        .u-l-btn
+          background: url(http://s2.music.126.net/style/web2/img/frame/playbar.png)
+          display: block;
+          width: 18px;
+          height: 18px;
+          margin: 6px 0 0 17px;
+          background-position: -100px -380px;
+          outline: 0;
+          border: 0;
+          cursor: pointer;
+          &:hover
+            background-position: -100px -400px;
+      .updown-right
+        position: absolute;
+        top: -1px;
+        right: 0;
+        width: 15px;
+        height: 54px;
+        background: url(http://s2.music.126.net/style/web2/img/frame/playbar.png)
+        background-position: -52px -393px;
+        pointer-events: none;

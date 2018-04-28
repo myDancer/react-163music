@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import './style.styl'
 import Header from '../header'
+import PlayBar from '../play-bar'
 import { Routes } from '../../router'
 
 const App = (props) => {
@@ -13,6 +14,7 @@ const App = (props) => {
       <div className="views">
         <Routes />
       </div>
+      <PlayBar />
     </div>
   )
 }
