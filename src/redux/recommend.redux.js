@@ -8,7 +8,9 @@ const RECOMMEND_FETCH_END = 'RECOMMEND_FETCH_END'
 // initial State
 const initState = {
   isFetching: false,
-  recommend: [],
+  recommend: {
+    recommend: [], singerList: [], diskList: [], billList: [], djList: [],
+  },
 }
 
 // reducer
@@ -23,7 +25,7 @@ export const recommendReducer = (state = initState, action) => {
       return {
         ...state,
         isFetching: false,
-        recommend: [...action.payload],
+        recommend: { ...action.payload },
       }
     default:
       return {
@@ -49,7 +51,6 @@ export const fetchRecommend = () => (dispatch) => {
     .get(recommendList, { dataType: 'json' })
     .then((res) => {
       dispatch(fetchEndAct(res.data))
-      console.log(fetchEndAct(res.data))
     })
     .catch((err) => {
       console.log('====================================')
