@@ -8,7 +8,7 @@ const RECOMMEND_FETCH_END = 'RECOMMEND_FETCH_END'
 // initial State
 const initState = {
   isFetching: false,
-  items: [],
+  recommend: [],
 }
 
 // reducer
@@ -23,7 +23,7 @@ export const recommendReducer = (state = initState, action) => {
       return {
         ...state,
         isFetching: false,
-        items: [...action.payload],
+        recommend: [...action.payload],
       }
     default:
       return {
@@ -37,9 +37,9 @@ const fetchStartAct = () => ({
   type: RECOMMEND_FETCH_START,
 })
 
-const fetchEndAct = items => ({
+const fetchEndAct = recommend => ({
   type: RECOMMEND_FETCH_END,
-  payload: items,
+  payload: recommend,
 })
 
 // login operation

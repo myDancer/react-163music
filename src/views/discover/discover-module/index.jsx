@@ -20,13 +20,13 @@ import './style.styl'
 )
 class DiscoverModule extends React.Component {
   componentDidMount() {
-    const { items } = this.props.recommendObj
-    if (!items.length) {
+    const { recommend } = this.props.recommendObj
+    if (!recommend.length) {
       this.props.fetchRecommend()
     }
   }
   render() {
-    const { items } = this.props.recommendObj
+    const { recommend } = this.props.recommendObj
     const toolbar = {
       title: '热门推荐',
       urlList: [
@@ -137,7 +137,7 @@ class DiscoverModule extends React.Component {
         <div className="l-wrap">
           <div className="l-wrap1">
             <Toolbar toolbar={toolbar} />
-            <SongList songList={items} />
+            <SongList songList={recommend} />
           </div>
           <div className="l-wrap1">
             <Toolbar toolbar={{ title: '新碟上架' }} />
