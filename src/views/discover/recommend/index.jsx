@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import axios from 'axios'
 import { fetchSwiperImg } from '../../../redux/swiper.redux'
 import Swiper from '../../../component/Swiper'
 import DownLoad from '../download'

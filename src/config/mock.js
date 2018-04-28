@@ -28,4 +28,29 @@ Mock.mock('/getSwiper', [
     img: 'http://p1.music.126.net/9nbTqC7RrErcJ78X6w2HGw==/109951163269984965.jpg', bgc: 'http://p1.music.126.net/5DACU9fWZznN4OfetPPUwA==/109951163269794789.jpg',
   },
 ])
-Mock.mock('/getSwiper1', { data: { first: '1' } })
+Mock.mock('/getRecommendList', [
+  {
+    imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './1', title: '时光里，我们都是赶路人', playNum: '24w',
+  },
+  {
+    imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './2', title: '时光里，我们都是赶路人', playNum: '24w',
+  },
+  {
+    imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './3', title: '时光里，我们都是赶路人', playNum: '24w',
+  },
+  {
+    imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './4', title: '时光里，我们都是赶路人', playNum: '24w',
+  },
+  {
+    imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './5', title: '时光里，我们都是赶路人', playNum: '24w',
+  },
+  {
+    imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './6', title: '时光里，我们都是赶路人', playNum: '24w',
+  },
+  {
+    imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './7', title: '时光里，我们都是赶路人', playNum: '24w',
+  },
+  {
+    imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './8', title: '时光里，我们都是赶路人', playNum: '24w',
+  },
+])

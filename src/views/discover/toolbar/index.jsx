@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import './style.styl'
 
 const Toolbar = (props) => {
-  console.log(props)
   let urlList
   if (props.toolbar.urlList) {
     urlList = (
