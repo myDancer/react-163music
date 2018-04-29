@@ -27,7 +27,21 @@ const PlayBar = () => (
                 </div>
               </div>
             </div>
+            <span className="time">
+              00:00 / 00:00
+            </span>
           </div>
+        </div>
+        <div className="oper">
+          <button className="oper-btn icn-add" />
+          <button className="oper-btn icn-share" />
+        </div>
+        <div className="flag">
+          <button className="oper-btn icn-vol" />
+          <button className="oper-btn icn-loop" />
+          <span className="add">
+            <button className="oper-btn icn-list">0</button>
+          </span>
         </div>
       </div>
       <div className="updown">
