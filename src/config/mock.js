@@ -31,28 +31,28 @@ Mock.mock('/getSwiper', [
 Mock.mock('/getRecommendList', {
   recommend: [
     {
-      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: './1', title: '时光里，我们都是赶路人', playNum: '24万',
+      imgUrl: 'http://p1.music.126.net/P5BW4BgCB92OTlNfnpN6LA==/19210667160665541.jpg?param=140y140', link: '/song/1', title: '时光里，我们都是赶路人', playNum: '24万',
     },
     {
-      imgUrl: 'http://p1.music.126.net/WjDAZ9C8whAB6yfE_sfIFw==/109951163244980773.jpg?param=140y140', link: './2', title: '致回不去的校园，致那美好的曾经', playNum: '288万',
+      imgUrl: 'http://p1.music.126.net/WjDAZ9C8whAB6yfE_sfIFw==/109951163244980773.jpg?param=140y140', link: '/song/2', title: '致回不去的校园，致那美好的曾经', playNum: '288万',
     },
     {
-      imgUrl: 'http://p1.music.126.net/0E9MVcPEjk-DNEqWG0e51w==/109951163268677829.jpg?param=140y140', link: './3', title: '人生无法重启 但你有这些歌曲', playNum: '8万',
+      imgUrl: 'http://p1.music.126.net/0E9MVcPEjk-DNEqWG0e51w==/109951163268677829.jpg?param=140y140', link: '/song/3', title: '人生无法重启 但你有这些歌曲', playNum: '8万',
     },
     {
-      imgUrl: 'http://p1.music.126.net/PGVb8dJCMxzK7ZNnEqWgFA==/18515775813897107.jpg?param=140y140', link: './4', title: '韩语| 一把吉他 ＋ 一段声音 = 超好听', playNum: '24w',
+      imgUrl: 'http://p1.music.126.net/PGVb8dJCMxzK7ZNnEqWgFA==/18515775813897107.jpg?param=140y140', link: '/song/4', title: '韩语| 一把吉他 ＋ 一段声音 = 超好听', playNum: '24w',
     },
     {
-      imgUrl: 'http://p1.music.126.net/yEy06d47Bjj8mk5fWyRiKg==/109951163262763876.jpg?param=140y140', link: './5', title: '马伯庸：我怀念的，是那张传说中的三寸软盘。', playNum: '21733',
+      imgUrl: 'http://p1.music.126.net/yEy06d47Bjj8mk5fWyRiKg==/109951163262763876.jpg?param=140y140', link: '/song/5', title: '马伯庸：我怀念的，是那张传说中的三寸软盘。', playNum: '21733',
     },
     {
-      imgUrl: 'http://p1.music.126.net/HFHrwKG3JQi3UJK6bmBpkA==/18875316114609391.jpg?param=140y140', link: './6', title: '♛游戏必用电音♚', playNum: '24万',
+      imgUrl: 'http://p1.music.126.net/HFHrwKG3JQi3UJK6bmBpkA==/18875316114609391.jpg?param=140y140', link: '/song/6', title: '♛游戏必用电音♚', playNum: '24万',
     },
     {
-      imgUrl: 'http://p1.music.126.net/3lmM36s1lXaE37wvX6XTWg==/109951163267780973.jpg?param=140y140', link: './7', title: '戒烟 抖音完整版', playNum: '29万',
+      imgUrl: 'http://p1.music.126.net/3lmM36s1lXaE37wvX6XTWg==/109951163267780973.jpg?param=140y140', link: '/song/7', title: '戒烟 抖音完整版', playNum: '29万',
     },
     {
-      imgUrl: 'http://p1.music.126.net/jpzUtYuvdB0Hd4BsmyPWZw==/109951163143073933.jpg?param=140y140', link: './8', title: '音室Vol.4丨细 数 一 些 旧 时 光', playNum: '34万',
+      imgUrl: 'http://p1.music.126.net/jpzUtYuvdB0Hd4BsmyPWZw==/109951163143073933.jpg?param=140y140', link: '/song/8', title: '音室Vol.4丨细 数 一 些 旧 时 光', playNum: '34万',
     },
   ],
   singerList: [
@@ -74,19 +74,19 @@ Mock.mock('/getRecommendList', {
   ],
   diskList: [
     {
-      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: './1',
+      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: '/song/1',
     },
     {
-      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: './2',
+      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: '/song/2',
     },
     {
-      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: './3',
+      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: '/song/3',
     },
     {
-      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: './4',
+      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: '/song/4',
     },
     {
-      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: './5',
+      imgUrl: 'http://p4.music.126.net/cJ4BOjSwvoU3ai8zTe-q8Q==/109951163243389836.jpg?param=100y100', title: '爵士乐与不插电新编12首', name: '李志', link: '/song/5',
     },
   ],
   billList: [

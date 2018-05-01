@@ -21,13 +21,13 @@ export const routeInfo = [
         title: '发现音乐',
         component: createLoadableComp('discover'),
       },
-      // {
-      //   index: 2,
-      //   path: '/my',
-      //   text: '我的音乐',
-      //   title: '我的音乐',
-      //   component: createLoadableComp('my'),
-      // },
+      {
+        index: 2,
+        path: '/song/:id',
+        text: '我的音乐',
+        title: '我的音乐',
+        component: createLoadableComp('song'),
+      },
       // {
       //   index: 3,
       //   path: '/friend',
