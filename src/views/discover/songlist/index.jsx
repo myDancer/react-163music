@@ -14,7 +14,7 @@ export default function SongList(props) {
               <div className="bottom">
                 <Link className="icn-play" to={item.link} />
                 <span className="icn-headset" />
-                <span>{item.playNum}</span>
+                <span className="playnum">{item.playNum}</span>
               </div>
             </div>
             <p className="dec"><Link className="dec-a" to={item.link}>{item.title}</Link></p>
