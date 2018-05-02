@@ -7,7 +7,9 @@ import './style.styl'
 const Song = () => (
   <div className="song-bg">
     <div className="song-warp">
-      <SongInfo />
+      <div className="song-info">
+        <SongInfo />
+      </div>
     </div>
     <div className="right-warp">222</div>
   </div>
