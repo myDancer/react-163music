@@ -1,7 +1,7 @@
 import React from 'react'
 import SongInfo from './song-info'
-// import Comment from './comment'
-// import Associate from './associate'
+import Comment from './comment'
+import Associate from './associate'
 import './style.styl'
 
 const Song = () => (
@@ -9,9 +9,12 @@ const Song = () => (
     <div className="song-warp">
       <div className="song-info">
         <SongInfo />
+        <Comment />
       </div>
     </div>
-    <div className="right-warp">222</div>
+    <div className="right-warp">
+      <Associate />
+    </div>
   </div>
 )
 export default Song

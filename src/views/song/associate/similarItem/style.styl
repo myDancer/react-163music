@@ -1,0 +1,37 @@
+@import '../../../../common/style/mixin.styl'
+.similar
+  margin-top: 10px;
+  list-style: none;
+  .text
+    float: left;
+    width: 156px;
+    line-height: 16px;
+    .tit-link
+      color: #333;
+      &:hover
+        text-decoration: underline;
+        color: #000;
+    .nam-link
+      color: #999;
+      mx_single_ellipsis()
+      &:hover
+        text-decoration: underline;
+  .opr
+    float: right;
+    position: relative;
+    top: 10px;
+    line-height: 32px;
+    .opr-btn
+      float: left;
+      width: 10px;
+      height: 11px;
+      background: url(http://s2.music.126.net/style/web2/img/icon2.png) no-repeat -9999px -9999px;
+      opacity: 0.9;
+      outline: 0;
+      border: 0;
+      cursor: pointer;
+    .icn-play
+      margin-right: 16px;
+      background-position: -69px -455px
+    .icn-add
+      background-position: -87px -454px;

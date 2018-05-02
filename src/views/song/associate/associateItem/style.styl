@@ -1,0 +1,33 @@
+@import '../../../../common/style/mixin.styl'
+.ass-item
+  float: left;
+  width: 200px;
+  height: 50px;
+  margin-bottom: 15px;
+  line-height: 24px;
+  list-style: none;
+  .img-wrap
+    float: left;
+    width: 50px;
+    height: 50px;
+  .title-wrap
+    margin-left: 60px;
+    line-height: 24px;
+    p
+      width: 140px;
+      mx_single_ellipsis()
+      .tit-link
+        font-size: 12px;
+        color: #000;
+        &:hover
+          text-decoration: underline;
+      span
+        float: left;
+        color: #999;
+      .des-link
+        float: left;
+        max-width: 106px;
+        margin: 0 2px 0 4px;
+        color: #666;
+        &:hover
+          text-decoration: underline;

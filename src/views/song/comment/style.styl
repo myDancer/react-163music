@@ -1,0 +1,94 @@
+@import '../../../common/style/mixin.styl'
+.comment-box
+  margin-top: 40px;
+  font-size: 12px;
+  color: #333;
+  .top-wrap
+    display: block;
+    .head-title
+      height: 33px;
+      border-bottom: 2px solid #c20c0c;
+      h3
+        font-size: 20px;
+        line-height: 28px;
+        float: left;
+        font-weight: normal;
+      span
+        float: left;
+        margin: 9px 0 0 20px;
+        color: #666;
+  .content-wrap
+    margin-top: 20px;
+    .iparea
+      margin-bottom: 20px;
+      .head
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin-right: -100px;
+        img
+          float: left;
+          width: 50px;
+          height: 50px;
+          margin-right: -100px;
+          border: 0;
+      .r-wrap
+        margin-left: 62px;
+        .textarea
+          position: relative;
+          zoom: 1;
+          padding-right: 14px;
+          .area
+            height: 50px;
+            display: block;
+            width: 100%;
+            margin-right: -20px;
+            margin: 0;
+            padding: 5px 6px 6px;
+            border: 1px solid #cdcdcd;
+            border-radius: 2px;
+            line-height: 19px;
+            resize: none;
+            overflow: auto;
+        .btns
+          clear: both;
+          padding-top: 10px;
+          position: relative;
+          &:after
+            clean_float()
+          button
+            outline: 0;
+            border: 0;
+          .icn
+            float: left;
+            margin: 0px 10px 0 0;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            background: url("http://s2.music.126.net/style/web2/img/icon.png") no-repeat 0 9999px;
+          .btn-emoji
+            background-position: -40px -490px;
+          .btn-at
+            background-position: -60px -490px;
+          .btn-commit
+            width: 46px;
+            height: 25px;
+            background: url("http://s2.music.126.net/style/web2/img/button.png")
+            background-position: -84px -64px;
+            color: #fff;
+            text-align: center;
+            line-height: 25px;
+            float: right;
+          .maxnum
+            float: right;
+            margin-right: 10px;
+            line-height: 25px;
+            color: #999;
+    .g-comments
+      display: block;
+      .u-hd4
+        position: relative;
+        top: 1px;
+        height: 20px;
+        border-bottom: 1px solid #cfcfcf;
+        font-size: 12px;
