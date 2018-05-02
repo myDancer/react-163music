@@ -12,15 +12,18 @@ class PlayBar extends React.Component {
       audioDuration: '00:00',
       currWidth: '0%',
       audioLoading: false,
+      bufferPercent: '0%',
     }
     this.refCB = this.refCB.bind(this)
     this.playOrPause = this.playOrPause.bind(this)
     this.handelDurationChange = this.handelDurationChange.bind(this)
     this.loadingAudio = this.loadingAudio.bind(this)
     this.handleCanPlay = this.handleCanPlay.bind(this)
+    this.handleProgress = this.handleProgress.bind(this)
   }
   componentDidMount() {
-    this.audio.src = 'http://m10.music.126.net/20180502160453/191bff2f187b1eea2eb3e992334b3396/ymusic/430d/5cda/073e/9dbd05f5faa9496202ec35bad477273c.mp3'
+    // this.audio.src = 'http://m10.music.126.net/20180502160453/191bff2f187b1eea2eb3e992334b3396/ymusic/430d/5cda/073e/9dbd05f5faa9496202ec35bad477273c.mp3'
+    this.audio.src = 'http://m10.music.126.net/20180502224904/160e2ae007dea0301af93ae8bd6185f9/ymusic/c2bc/48d6/9d33/68be595e81d2c0ec52a8afec4f0f1f00.mp3'
   }
   refCB(ref) {
     this.audio = ref
@@ -47,9 +50,14 @@ class PlayBar extends React.Component {
   // 音频可以播放
   handleCanPlay() {
     this.setState({ audioLoading: false })
-    setInterval(() => {
-      console.log(this.audio.buffered)
-    }, 1000)
+  }
+  // 音频加载
+  handleProgress() {
+    console.log(this.audio.buffered)
+    const timeRanges = this.audio.buffered
+    const timeBuffered = timeRanges.end(timeRanges.length - 1)
+    const bufferPercent = (timeBuffered / this.audio.duration) * 100
+    this.setState({ bufferPercent: `${bufferPercent}%` })
   }
   // 显示音频总时长
   handelDurationChange() {
@@ -62,7 +70,7 @@ class PlayBar extends React.Component {
   render() {
     return (
       <div className="playbar-wrap">
-        <audio controls="controls" ref={this.refCB} style={{ display: 'none' }} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
+        <audio controls="controls" ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
         <div className="playbar">
           <div className="bg" />
           <div className="wrap">
@@ -80,6 +88,7 @@ class PlayBar extends React.Component {
               </div>
               <div className="pbar">
                 <div className="barbg">
+                  <div className="rdy" style={{ width: this.state.bufferPercent }} />
                   <div className="cur" style={{ width: this.state.currWidth }}>
                     <div className="cur-btn">
                       <i style={{ visibility: this.state.audioLoading ? 'visible' : 'hidden' }} />
