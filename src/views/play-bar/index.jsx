@@ -13,6 +13,10 @@ class PlayBar extends React.Component {
       currWidth: '0%',
       audioLoading: false,
       bufferPercent: '0%',
+      sliderOption: {
+        isDrag: false,
+        scale: 0,
+      },
     }
     this.refCB = this.refCB.bind(this)
     this.playOrPause = this.playOrPause.bind(this)
@@ -21,13 +25,47 @@ class PlayBar extends React.Component {
     this.handleCanPlay = this.handleCanPlay.bind(this)
     this.handleProgress = this.handleProgress.bind(this)
     this.changeCurTime = this.changeCurTime.bind(this)
+    this.handleMouseDown = this.handleMouseDown.bind(this)
+    this.handleMouseMove = this.handleMouseMove.bind(this)
+    this.handleMouseUp = this.handleMouseUp.bind(this)
   }
   componentDidMount() {
     // this.audio.src = 'http://m10.music.126.net/20180502160453/191bff2f187b1eea2eb3e992334b3396/ymusic/430d/5cda/073e/9dbd05f5faa9496202ec35bad477273c.mp3'
-    this.audio.src = 'http://m10.music.126.net/20180503094931/bbc3140685fd5f6726c6ce83d717bfb0/ymusic/ea22/e332/e0b1/dcda6a860b0d24b635351b7a33f22edb.mp3'
+    this.audio.src = 'http://m10.music.126.net/20180503140831/fe0c0b46a4171a57870d823b3303e8b0/ymusic/ea22/e332/e0b1/dcda6a860b0d24b635351b7a33f22edb.mp3'
+    window.addEventListener('mouseup', this.handleMouseUp)
   }
   refCB(ref) {
     this.audio = ref
+  }
+  handleMouseUp(e) {
+    e.stopPropagation()
+    if (this.state.sliderOption.isDrag) {
+      this.setState({ sliderOption: { isDrag: false } })
+    }
+  }
+  handleMouseMove(e) {
+    e.stopPropagation()
+    if (this.state.sliderOption.isDrag) {
+      const offsetLeft = document.getElementById('g_player').offsetLeft + 185
+      let distance = e.clientX - offsetLeft
+      distance = distance > 0 ? distance : 0
+      let scale = distance / 493
+      if (scale < 0) {
+        scale = 0
+      } else if (scale > 1) {
+        scale = 1
+      }
+      this.audio.currentTime = this.audio.duration * scale
+      this.setState({
+        sliderOption: { scale, isDrag: true },
+        currWidth: `${scale * 100}%`,
+        currentTime: formatCurrentTime(this.audio.currentTime),
+      })
+    }
+  }
+  handleMouseDown(e) {
+    e.stopPropagation()
+    this.setState({ sliderOption: { isDrag: true } })
   }
   // 点击播放进度条事件
   changeCurTime(e) {
@@ -38,6 +76,7 @@ class PlayBar extends React.Component {
     this.audio.currentTime = this.audio.duration * scale
     this.setState({
       currWidth: `${scale * 100}%`,
+      currentTime: formatCurrentTime(this.audio.currentTime),
     })
   }
   // 播放暂停按钮
@@ -82,7 +121,7 @@ class PlayBar extends React.Component {
   }
   render() {
     return (
-      <div className="playbar-wrap">
+      <div className="playbar-wrap" onMouseMove={this.handleMouseMove}>
         <audio controls="controls" ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
         <div className="playbar">
           <div className="bg" />
@@ -103,7 +142,7 @@ class PlayBar extends React.Component {
                 <div className="barbg" id="barbg" onClick={this.changeCurTime}>
                   <div className="rdy" style={{ width: this.state.bufferPercent }} />
                   <div className="cur" style={{ width: this.state.currWidth }}>
-                    <div className="cur-btn">
+                    <div className="cur-btn" onMouseDown={this.handleMouseDown}>
                       <i style={{ visibility: this.state.audioLoading ? 'visible' : 'hidden' }} />
                     </div>
                   </div>
