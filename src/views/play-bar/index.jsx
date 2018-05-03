@@ -17,6 +17,7 @@ class PlayBar extends React.Component {
         isDrag: false,
         scale: 0,
       },
+      cycleMode: 0,
     }
     this.refCB = this.refCB.bind(this)
     this.playOrPause = this.playOrPause.bind(this)
@@ -28,6 +29,7 @@ class PlayBar extends React.Component {
     this.handleMouseDown = this.handleMouseDown.bind(this)
     this.handleMouseMove = this.handleMouseMove.bind(this)
     this.handleMouseUp = this.handleMouseUp.bind(this)
+    this.switchCycleMode = this.switchCycleMode.bind(this)
   }
   componentDidMount() {
     // this.audio.src = 'http://m10.music.126.net/20180502160453/191bff2f187b1eea2eb3e992334b3396/ymusic/430d/5cda/073e/9dbd05f5faa9496202ec35bad477273c.mp3'
@@ -36,6 +38,15 @@ class PlayBar extends React.Component {
   }
   refCB(ref) {
     this.audio = ref
+  }
+  // 切换循环模式
+  switchCycleMode() {
+    // 0 随机，1为单曲， 2为循环
+    if (this.state.cycleMode < 2) {
+      this.setState({ cycleMode: this.state.cycleMode + 1 })
+    } else {
+      this.setState({ cycleMode: 0 })
+    }
   }
   // 鼠标松开
   handleMouseUp(e) {
@@ -161,8 +172,15 @@ class PlayBar extends React.Component {
               <button className="oper-btn icn-share" />
             </div>
             <div className="flag">
+              <div className="vol">
+                <div className="vol-bg" />
+                <div className="v-bg">
+                  <div className="cur-vol" />
+                  <span className="cut-btn" />
+                </div>
+              </div>
               <button className="oper-btn icn-vol" />
-              <button className="oper-btn icn-loop" />
+              <button onClick={this.switchCycleMode} className={`oper-btn icn-cycleMode${this.state.cycleMode}`} />
               <span className="add">
                 <button className="oper-btn icn-list">0</button>
               </span>

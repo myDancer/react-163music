@@ -175,6 +175,50 @@
         background: url(http://s2.music.126.net/style/web2/img/frame/playbar.png)no-repeat 0 9999px;
         background-position: -147px -238px;
         float: left;
+        .vol
+          position: absolute;
+          top: -113px;
+          left: 9px;
+          clear: both;
+          width: 32px;
+          height: 113px;
+          .vol-bg
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 32px;
+            height: 113px;
+            background: url("http://s2.music.126.net/style/web2/img/frame/playbar.png")
+            background-position: 0 -503px;
+          .v-bg
+            position: absolute;
+            top: 7px;
+            left: 14px;
+            width: 4px;
+            height: 93px;
+            padding: 4px 0;
+            .cur-vol
+              position: absolute;
+              width: 4px;
+              height: 74.4px;
+              top: auto;
+              bottom: 4px;
+              left: 0;
+              background: url("http://s2.music.126.net/style/web2/img/frame/playbar.png")
+              background-position: -40px bottom;
+              overflow: hidden;
+            .cut-btn
+              top: 16.2px;
+              position: absolute;
+              left: -7px;
+              display: block;
+              width: 18px;
+              height: 20px;
+              background: url("http://s2.music.126.net/style/web2/img/iconall.png")
+              background-position: -40px -250px;
+              cursor: pointer;
+              &:hover
+                background-position: -40px -280px;
         .oper-btn
           background: url(http://s2.music.126.net/style/web2/img/frame/playbar.png)no-repeat 0 9999px;
           float: left;
@@ -189,7 +233,15 @@
           background-position: -2px -248px;
           &:hover
             background-position: -31px -248px;
-        .icn-loop
+        .icn-cycleMode0
+          background-position: -66px -248px;
+          &:hover
+            background-position: -93px -248px;
+        .icn-cycleMode1
+          background-position: -66px -344px;
+          &:hover
+            background-position: -93px -344px;
+        .icn-cycleMode2
           background-position: -3px -344px;
           &:hover
             background-position: -33px -344px;
