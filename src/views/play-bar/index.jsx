@@ -20,13 +20,25 @@ class PlayBar extends React.Component {
     this.loadingAudio = this.loadingAudio.bind(this)
     this.handleCanPlay = this.handleCanPlay.bind(this)
     this.handleProgress = this.handleProgress.bind(this)
+    this.changeCurTime = this.changeCurTime.bind(this)
   }
   componentDidMount() {
     // this.audio.src = 'http://m10.music.126.net/20180502160453/191bff2f187b1eea2eb3e992334b3396/ymusic/430d/5cda/073e/9dbd05f5faa9496202ec35bad477273c.mp3'
-    this.audio.src = 'http://m10.music.126.net/20180502224904/160e2ae007dea0301af93ae8bd6185f9/ymusic/c2bc/48d6/9d33/68be595e81d2c0ec52a8afec4f0f1f00.mp3'
+    this.audio.src = 'http://m10.music.126.net/20180503094931/bbc3140685fd5f6726c6ce83d717bfb0/ymusic/ea22/e332/e0b1/dcda6a860b0d24b635351b7a33f22edb.mp3'
   }
   refCB(ref) {
     this.audio = ref
+  }
+  // 点击播放进度条事件
+  changeCurTime(e) {
+    const offsetLeft = document.getElementById('g_player').offsetLeft + 185
+    let distance = e.clientX - offsetLeft
+    distance = distance > 0 ? distance : 0
+    const scale = distance / 493
+    this.audio.currentTime = this.audio.duration * scale
+    this.setState({
+      currWidth: `${scale * 100}%`,
+    })
   }
   // 播放暂停按钮
   playOrPause() {
@@ -54,9 +66,11 @@ class PlayBar extends React.Component {
   // 音频加载
   handleProgress() {
     const timeRanges = this.audio.buffered
-    const timeBuffered = timeRanges.end(timeRanges.length - 1)
-    const bufferPercent = (timeBuffered / this.audio.duration) * 100
-    this.setState({ bufferPercent: `${bufferPercent}%` })
+    if (timeRanges.length >= 1) {
+      const timeBuffered = timeRanges.end(timeRanges.length - 1)
+      const bufferPercent = (timeBuffered / this.audio.duration) * 100
+      this.setState({ bufferPercent: `${bufferPercent}%` })
+    }
   }
   // 显示音频总时长
   handelDurationChange() {
@@ -72,7 +86,7 @@ class PlayBar extends React.Component {
         <audio controls="controls" ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
         <div className="playbar">
           <div className="bg" />
-          <div className="wrap">
+          <div className="wrap" id="g_player">
             <div className="btns">
               <button className="play-btn btn-p" title="上一首">上一首</button>
               <button onClick={this.playOrPause} className={this.state.playing ? 'play-btn btn-paused' : 'play-btn btn-play'} title="播放/暂停">播放/暂停</button>
@@ -86,7 +100,7 @@ class PlayBar extends React.Component {
                 <Link className="wrods-img2" to="./123" />
               </div>
               <div className="pbar">
-                <div className="barbg">
+                <div className="barbg" id="barbg" onClick={this.changeCurTime}>
                   <div className="rdy" style={{ width: this.state.bufferPercent }} />
                   <div className="cur" style={{ width: this.state.currWidth }}>
                     <div className="cur-btn">
