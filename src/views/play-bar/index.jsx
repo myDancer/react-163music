@@ -37,12 +37,14 @@ class PlayBar extends React.Component {
   refCB(ref) {
     this.audio = ref
   }
+  // 鼠标松开
   handleMouseUp(e) {
     e.stopPropagation()
     if (this.state.sliderOption.isDrag) {
       this.setState({ sliderOption: { isDrag: false } })
     }
   }
+  // 鼠标在进度条上划过
   handleMouseMove(e) {
     e.stopPropagation()
     if (this.state.sliderOption.isDrag) {
@@ -63,6 +65,7 @@ class PlayBar extends React.Component {
       })
     }
   }
+  // 鼠标在进度点处按下
   handleMouseDown(e) {
     e.stopPropagation()
     this.setState({ sliderOption: { isDrag: true } })
@@ -121,7 +124,7 @@ class PlayBar extends React.Component {
   }
   render() {
     return (
-      <div className="playbar-wrap" onMouseMove={this.handleMouseMove}>
+      <div className="playbar-wrap" onMouseMove={this.handleMouseMove} style={{ 'user-select': this.state.sliderOption.isDrag ? 'none' : 'text' }}>
         <audio controls="controls" ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
         <div className="playbar">
           <div className="bg" />
