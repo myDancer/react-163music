@@ -1,8 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { formatCurrentTime } from '../../common/js/util'
+import { fetchSong } from '../../redux/song.redux'
 import './style.styl'
 
+@connect( // 将store和组件联系在一起
+  state => ({ // mapStateToProps
+    songObj: state.song,
+  }),
+  { // mapDispatchToProps
+    fetchSong,
+  },
+)
 class PlayBar extends React.Component {
   constructor(props) {
     super(props)
@@ -38,11 +48,14 @@ class PlayBar extends React.Component {
     this.showVolPanel = this.showVolPanel.bind(this)
   }
   componentDidMount() {
-    // this.audio.src = 'http://m10.music.126.net/20180502160453/191bff2f187b1eea2eb3e992334b3396/ymusic/430d/5cda/073e/9dbd05f5faa9496202ec35bad477273c.mp3'
-    this.audio.src = 'http://m10.music.126.net/20180503140831/fe0c0b46a4171a57870dthis.VOLLONG3b3303e8b0/ymusic/ea22/e332/e0b1/dcda6a860b0d24b635351b7a33f22edb.mp3'
     window.addEventListener('mouseup', this.handleMouseUp)
     // 初始化音量
     this.tranVol(this.state.volHeight)
+    this.props.fetchSong()
+    // const { data } = this.props.songObj.datas
+    // if (data) {
+    //   this.audio.src = data[0].url
+    // }
   }
   refCB(ref) {
     this.audio = ref
