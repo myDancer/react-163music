@@ -20,6 +20,7 @@ class PlayBar extends React.Component {
       },
       cycleMode: 0,
       volHeight: 65.6,
+      showVol: false,
     }
     this.refCB = this.refCB.bind(this)
     this.playOrPause = this.playOrPause.bind(this)
@@ -34,6 +35,7 @@ class PlayBar extends React.Component {
     this.switchCycleMode = this.switchCycleMode.bind(this)
     this.changeVol = this.changeVol.bind(this)
     this.tranVol = this.tranVol.bind(this)
+    this.showVolPanel = this.showVolPanel.bind(this)
   }
   componentDidMount() {
     // this.audio.src = 'http://m10.music.126.net/20180502160453/191bff2f187b1eea2eb3e992334b3396/ymusic/430d/5cda/073e/9dbd05f5faa9496202ec35bad477273c.mp3'
@@ -44,6 +46,9 @@ class PlayBar extends React.Component {
   }
   refCB(ref) {
     this.audio = ref
+  }
+  showVolPanel() {
+    this.setState({ showVol: !this.state.showVol })
   }
   // 改变音量条高度
   changeVol(e) {
@@ -193,14 +198,14 @@ class PlayBar extends React.Component {
               <button className="oper-btn icn-share" />
             </div>
             <div className="flag">
-              <div className="vol">
+              <div className="vol" style={{ visibility: this.state.showVol ? 'visible' : 'hidden' }}>
                 <div className="vol-bg" />
                 <div className="vol-bar" onClick={this.changeVol}>
                   <div className="cur-vol" style={{ height: `${this.state.volHeight}px` }} />
                   <span className="cur-btn" style={{ top: `${this.VOLLONG - this.state.volHeight}px` }} />
                 </div>
               </div>
-              <button className="oper-btn icn-vol" />
+              <button className="oper-btn icn-vol" onClick={this.showVolPanel} />
               <button onClick={this.switchCycleMode} className={`oper-btn icn-cycleMode${this.state.cycleMode}`} />
               <span className="add">
                 <button className="oper-btn icn-list">0</button>
