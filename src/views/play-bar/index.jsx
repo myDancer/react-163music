@@ -51,11 +51,10 @@ class PlayBar extends React.Component {
     window.addEventListener('mouseup', this.handleMouseUp)
     // 初始化音量
     this.tranVol(this.state.volHeight)
-    this.props.fetchSong()
-    // const { data } = this.props.songObj.datas
-    // if (data) {
-    //   this.audio.src = data[0].url
-    // }
+    const { datas } = this.props.songObj
+    if (!datas.data) {
+      this.props.fetchSong()
+    }
   }
   refCB(ref) {
     this.audio = ref
@@ -174,6 +173,12 @@ class PlayBar extends React.Component {
     this.setState({ audioLoading: true })
   }
   render() {
+    const { data } = this.props.songObj.datas
+    if (data && data.length) {
+      if (this.audio.src !== data[0].url) {
+        this.audio.src = data[0].url
+      }
+    }
     return (
       <div className="playbar-wrap" onMouseMove={this.handleMouseMove} style={{ userSelect: this.state.sliderOption.isDrag ? 'none' : 'text' }}>
         <audio controls="controls" ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
