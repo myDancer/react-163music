@@ -108,6 +108,7 @@ class PlayBar extends React.Component {
   // 音频加载
   handleProgress() {
     const timeRanges = this.audio.buffered
+    console.log(timeRanges)
     if (timeRanges.length >= 1) {
       const timeBuffered = timeRanges.end(timeRanges.length - 1)
       const bufferPercent = (timeBuffered / this.audio.duration) * 100
@@ -124,7 +125,7 @@ class PlayBar extends React.Component {
   }
   render() {
     return (
-      <div className="playbar-wrap" onMouseMove={this.handleMouseMove} style={{ 'user-select': this.state.sliderOption.isDrag ? 'none' : 'text' }}>
+      <div className="playbar-wrap" onMouseMove={this.handleMouseMove} style={{ userSelect: this.state.sliderOption.isDrag ? 'none' : 'text' }}>
         <audio controls="controls" ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
         <div className="playbar">
           <div className="bg" />
