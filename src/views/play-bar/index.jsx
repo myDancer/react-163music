@@ -6,6 +6,7 @@ import './style.styl'
 class PlayBar extends React.Component {
   constructor(props) {
     super(props)
+    this.VOLLONG = 82
     this.state = {
       playing: false,
       currentTime: '00:00',
@@ -18,6 +19,7 @@ class PlayBar extends React.Component {
         scale: 0,
       },
       cycleMode: 0,
+      volHeight: 65.6,
     }
     this.refCB = this.refCB.bind(this)
     this.playOrPause = this.playOrPause.bind(this)
@@ -30,14 +32,33 @@ class PlayBar extends React.Component {
     this.handleMouseMove = this.handleMouseMove.bind(this)
     this.handleMouseUp = this.handleMouseUp.bind(this)
     this.switchCycleMode = this.switchCycleMode.bind(this)
+    this.changeVol = this.changeVol.bind(this)
+    this.tranVol = this.tranVol.bind(this)
   }
   componentDidMount() {
     // this.audio.src = 'http://m10.music.126.net/20180502160453/191bff2f187b1eea2eb3e992334b3396/ymusic/430d/5cda/073e/9dbd05f5faa9496202ec35bad477273c.mp3'
-    this.audio.src = 'http://m10.music.126.net/20180503140831/fe0c0b46a4171a57870d823b3303e8b0/ymusic/ea22/e332/e0b1/dcda6a860b0d24b635351b7a33f22edb.mp3'
+    this.audio.src = 'http://m10.music.126.net/20180503140831/fe0c0b46a4171a57870dthis.VOLLONG3b3303e8b0/ymusic/ea22/e332/e0b1/dcda6a860b0d24b635351b7a33f22edb.mp3'
     window.addEventListener('mouseup', this.handleMouseUp)
+    // 初始化音量
+    this.tranVol(this.state.volHeight)
   }
   refCB(ref) {
     this.audio = ref
+  }
+  // 改变音量条高度
+  changeVol(e) {
+    let volHeight = document.documentElement.clientHeight - 62 - e.clientY
+    if (volHeight > this.VOLLONG) {
+      volHeight = this.VOLLONG
+    } else if (volHeight < 0) {
+      volHeight = 0
+    }
+    this.setState({ volHeight })
+    this.tranVol(volHeight)
+  }
+  // 高度转换成音量
+  tranVol(volHeight) {
+    this.audio.volume = ((100 / this.VOLLONG) * volHeight) / 100
   }
   // 切换循环模式
   switchCycleMode() {
@@ -174,9 +195,9 @@ class PlayBar extends React.Component {
             <div className="flag">
               <div className="vol">
                 <div className="vol-bg" />
-                <div className="v-bg">
-                  <div className="cur-vol" />
-                  <span className="cut-btn" />
+                <div className="vol-bar" onClick={this.changeVol}>
+                  <div className="cur-vol" style={{ height: `${this.state.volHeight}px` }} />
+                  <span className="cur-btn" style={{ top: `${this.VOLLONG - this.state.volHeight}px` }} />
                 </div>
               </div>
               <button className="oper-btn icn-vol" />
