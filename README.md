@@ -14,6 +14,6 @@
 
 2. 拷贝dist文件夹至服务器即可
 
-## 预览地址
+##  预览地址
 
 浏览器打开[http://music.liangjiang.win](http://music.liangjiang.win)
