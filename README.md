@@ -5,13 +5,14 @@
 部分使用mock.js模拟数据，部分使用node.js转发网易云接口数据
 
 ## 技术栈
-- Reactjs
-- react-redux
-- react-router
+- Reactjs: "^15.6.1",
+- redux: "^3.7.2",
+- react-redux: "^5.0.6",
+- react-routerr-dom: "^4.2.2",
 - ES6 / ES7
-- webpack
-- stylus
-- Axios
+- webpack: "3.8.1",
+- stylus: "^0.54.5",
+- Axios: "^0.17.1"
 
 ## 开发坏境启动
 
