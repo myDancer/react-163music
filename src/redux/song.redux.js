@@ -8,7 +8,7 @@ const SONG_FETCH_END = 'SONG_FETCH_END'
 // initial State
 const initState = {
   isFetching: false,
-  datas: {},
+  data: [],
 }
 
 // reducer
@@ -23,7 +23,7 @@ export const song = (state = initState, action) => {
       return {
         ...state,
         isFetching: false,
-        datas: { ...action.payload },
+        ...action.payload,
       }
     default:
       return {
@@ -49,6 +49,7 @@ export const fetchSong = () => (dispatch) => {
     .get(songDetail, { dataType: 'json' })
     .then((res) => {
       dispatch(fetchEndAct(res.data))
+      console.log(dispatch(fetchEndAct(res.data)))
     })
     .catch((err) => {
       console.log('====================================')
