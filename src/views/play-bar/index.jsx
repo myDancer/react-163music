@@ -46,12 +46,14 @@ class PlayBar extends React.Component {
     this.changeVol = this.changeVol.bind(this)
     this.tranVol = this.tranVol.bind(this)
     this.showVolPanel = this.showVolPanel.bind(this)
+    // console.log(this.props.songObj)
   }
   componentDidMount() {
     window.addEventListener('mouseup', this.handleMouseUp)
     // 初始化音量
     this.tranVol(this.state.volHeight)
     const { datas } = this.props.songObj
+    console.log(datas)
     if (!datas.data) {
       this.props.fetchSong()
     }
@@ -174,14 +176,9 @@ class PlayBar extends React.Component {
   }
   render() {
     const { data } = this.props.songObj.datas
-    if (data && data.length) {
-      if (this.audio.src !== data[0].url) {
-        this.audio.src = data[0].url
-      }
-    }
     return (
       <div className="playbar-wrap" onMouseMove={this.handleMouseMove} style={{ userSelect: this.state.sliderOption.isDrag ? 'none' : 'text' }}>
-        <audio controls="controls" ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
+        <audio controls="controls" src={data && data[0].url} ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
         <div className="playbar">
           <div className="bg" />
           <div className="wrap" id="g_player">
