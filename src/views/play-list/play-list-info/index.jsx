@@ -23,14 +23,10 @@ class SongInfo extends React.Component {
             <img src="http://p1.music.126.net/ImOQNmJZTzogPdt0-AsyDA==/19045740416582430.jpg?param=130y130" alt="图片" />
             <span className="img-msk" />
           </div>
-          <div className="out">
-            <i className="icn-music" />
-            <Link className="out-link" to="./3">生成外链播放器</Link>
-          </div>
         </div>
         <div className="content">
           <div className="head">
-            <i className="lab" />
+            <i className="playlist-lab" />
             <div className="title">
               <em>电台情歌</em>
             </div>

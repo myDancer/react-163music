@@ -12,3 +12,8 @@ export function searchPlaylist(keyword) {
 
 // 获取歌
 export const songDetail = 'https://api.mtnhao.com/music/url?id=29715187'
+
+// 根据歌单id查找歌单
+export function playList(id) {
+  return `http://music.163.com/api/playlist/detail?id=${id}`
+}

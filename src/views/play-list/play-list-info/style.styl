@@ -1,0 +1,159 @@
+@import '../../../common/style/mixin.styl';
+.song-wrap
+  font-size: 12px;
+  &:after
+    clean_float();
+  .img-wrap
+    float: left;
+    width: 206px;
+    margin-right: -226px;
+    position: relative;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    .img-cover
+      width: 198px;
+      height: 198px;
+      position: relative;
+      float: left;
+      img
+        width: 100%;
+        height: 100%;
+      .img-msk
+        position: absolute;
+        width: 206px;
+        height: 205px;
+        top: -4px;
+        left: -4px;
+        background: url(http://s2.music.126.net/style/web2/img/coverall.png)
+        background-position: 0 -1285px;
+    .out
+      float: left;
+      margin: 20px 0 0 46px;
+      .out-link
+        text-decoration: underline;
+        color: #0c73c2;
+        margin: 10px 0;
+      .icn-music
+        width: 16px;
+        height: 16px;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+        background: url("http://s2.music.126.net/style/web2/img/icon.png")no-repeat 0 9999px;
+        background-position: -34px -863px;
+  .content
+    float: right;
+    width: 414px;
+    font-size: 12px;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    .head
+      word-wrap: break-word;
+      .playlist-lab
+        float: left;
+        width: 54px;
+        height: 24px;
+        background:url(http://s2.music.126.net/style/web2/img/icon.png)
+        background-position: 0 -243px;
+      .title
+        margin-left: 64px;
+        position: relative;
+        top: -6px;
+        font-size: 24px;
+        height: 33px;
+        em
+          margin-right: 7px;
+          font-style: normal;
+          vertical-align: middle;
+    .des
+      margin: 10px 0;
+      color: #999;
+      a
+        color: #0c73c2;
+        &:hover
+          text-decoration: underline;
+    .btn-group
+      margin-bottom: 25px;
+      margin-right: -10px;
+      &:after
+        clear: both;
+        content: '.';
+        display: block;
+        height: 0;
+        visibility: hidden;
+      .info-btn
+        border: 0;
+        outline: 0;
+        margin-right: 6px;
+        float: left;
+        height: 31px;
+        line-height: 30px;
+        min-width: 23px;
+        cursor: pointer;
+        padding: 0 5px 0 0;
+        white-space: nowrap;
+        color: #333;
+        background: url('http://s2.music.126.net/style/web2/img/button2.png')no-repeat 0 9999px;
+      .btn-i
+        font-family: "simsun","宋体";
+        font-style: normal;
+        float: left;
+        height: 31px;
+        line-height: 30px;
+        min-width: 23px;
+        cursor: pointer;
+        background: url('http://s2.music.126.net/style/web2/img/button2.png')no-repeat 0 9999px;
+      .icn-blue
+        background-position: right -428px;
+        &:hover
+          color: #fff;
+          background-position: right -510px;
+      .icn-white
+        background-position: right -1020px;
+      .icn-play
+        color: #fff;
+        padding: 0 7px 0 8px;
+        background-position: 0 -387px;
+        &:hover
+          color: #fff;
+          background-position: 0 -469px;
+      .icn-collect
+        padding-left: 28px;
+        background-position: 0 -977px;
+        &:hover
+          background-position: 0 -1063px;
+      .icn-share
+        padding-left: 28px;
+        background-position: 0 -1225px;
+        &:hover
+          background-position: 0 -1268px;
+      .icn-download
+        padding-left: 28px;
+        background-position: 0 -2761px;
+        &:hover
+          background-position: 0 -2805px;
+      .icn-comment
+        padding-left: 28px;
+        // line-height: 28px;
+        background-position: 0 -1465px;
+        &:hover
+          background-position: 0 -1508px;
+      .ply
+        float: left;
+        width: 20px;
+        height: 18px;
+        margin: 6px 2px 2px 0;
+        background: url("http://s2.music.126.net/style/web2/img/button2.png")
+        background-position: 0 -1622px;
+        overflow: hidden;
+      .plyhover
+        float: left;
+        width: 20px;
+        height: 18px;
+        margin: 6px 2px 2px 0;
+        background: url("http://s2.music.126.net/style/web2/img/button2.png")
+        background-position: -28px -1622px;
+        overflow: hidden;
+    .lyric-content
+      height: auto;
+      margin-top: 13px;
+      line-height: 23px;
+      color: #333;

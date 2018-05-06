@@ -1,0 +1,102 @@
+@import '../../../common/style/mixin.styl'
+.init-link
+  color: #333;
+  cursor: pointer;
+  &:hover
+    text-decoration: underline;
+.songtb
+  margin-top: 27px;
+  font-size: 12px;
+  .title
+    height: 33px;
+    border-bottom: 2px solid #c20c0c;
+    &:after
+      clean_float()
+    h3
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: normal;
+      float: left;
+    .track-count
+      margin: 9px 0 0 20px;
+      float: left;
+      color: #666;
+    .more
+      margin-top: 5px;
+      float: right;
+      color: #666;
+      .play-count
+        color: #c20c0c;
+    .out
+      float: right;
+      margin: 5px 20px 0 0;
+      .out-link
+        text-decoration: underline;
+        color: #0c73c2;
+        margin: 10px 0;
+      .icn-music
+        width: 16px;
+        height: 16px;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+        background: url("http://s2.music.126.net/style/web2/img/icon.png")no-repeat 0 9999px;
+        background-position: -34px -863px;
+  .song-list
+    display block
+    .m-table
+      width: 100%;
+      border: 1px solid #d9d9d9;
+      border-collapse: collapse;
+      border-spacing: 0;
+      table-layout: fixed;
+      th
+        vertical-align: top;
+        text-align: left;
+        font-weight: normal;
+        color: #666;
+        height: 38px;
+        background-color: #f7f7f7;
+        background: url("http://s2.music.126.net/style/web2/img/table.png")
+        background-position: 0 0;
+        background-repeat: repeat-x;
+      td
+        padding: 6px 10px;
+        line-height: 18px;
+        text-align: left;
+      .first
+        width: 74px;
+      .thbg
+        background: url("http://s2.music.126.net/style/web2/img/table.png") no-repeat 0 9999px;
+        height: 18px;
+        line-height: 18px;
+        padding: 8px 10px;
+        background-position: 0 -56px;
+      .th2:after
+        content: '歌曲标题'
+      .th3:after
+        content: '时长'
+      .th4:after
+        content: '歌手'
+      .th5:after
+        content: '专辑'
+      .song-tr:nth-child(odd)
+        background-color: #f7f7f7;
+      .left
+        padding: 6px 10px;
+        line-height: 18px;
+        text-align: left;
+        .icn-play
+          border: 0;
+          outline: 0;
+          float: right;
+          width: 17px;
+          height: 17px;
+          cursor: pointer;
+          background: url('http://s2.music.126.net/style/web2/img/table.png?5d9e904a7bee1c5aef56c819b501a104') 0 -103px no-repeat
+        .num
+          width: 25px;
+          margin-left: 5px;
+          color: #999;
+      .song-dur
+        color: #666;
