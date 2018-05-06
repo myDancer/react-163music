@@ -19,7 +19,7 @@ class Login extends React.Component {
   render() {
     const subMenu = this.subMenu
     let subNav
-    if (this.props.location.pathname.indexOf('/discover') !== -1 || this.props.location.pathname.indexOf('/song') !== -1) {
+    if (this.props.location.pathname.indexOf('/discover') !== -1 || this.props.location.pathname.indexOf('/song') !== -1 || this.props.location.pathname.indexOf('/playlist') !== -1) {
       subNav = (
         <div className="subnav">
           <div className="subnav-wrapper">

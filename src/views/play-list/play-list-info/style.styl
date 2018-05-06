@@ -63,13 +63,30 @@
           margin-right: 7px;
           font-style: normal;
           vertical-align: middle;
-    .des
-      margin: 10px 0;
-      color: #999;
-      a
-        color: #0c73c2;
-        &:hover
-          text-decoration: underline;
+    .user
+      margin: 0 0 20px;
+      line-height: 35px;
+      &:after
+        clean_float();
+      .face
+        margin-right: 10px;
+        float: left;
+        width: 35px;
+        height: 35px;
+      .name
+        float: left;
+        line-height: 35px;
+      .icn-star
+        float: left;
+        margin: 9px 0 0 3px;
+        width: 12px;
+        height: 13px;
+        vertical-align: middle;
+        background: url('http://s2.music.126.net/style/web2/img/icon.png') -65px -840px no-repeat
+      .time
+        line-height: 35px;
+        color: #999;
+        margin-left: 15px;
     .btn-group
       margin-bottom: 25px;
       margin-right: -10px;
@@ -152,8 +169,40 @@
         background: url("http://s2.music.126.net/style/web2/img/button2.png")
         background-position: -28px -1622px;
         overflow: hidden;
-    .lyric-content
-      height: auto;
-      margin-top: 13px;
-      line-height: 23px;
-      color: #333;
+    .tags
+      margin: 25px 0 5px;
+      line-height: 22px;
+      color: #666;
+      &:after
+        clean_float();
+      span
+        float: left;
+      .tag
+        float: left;
+        margin: 0px 10px 3px 0;
+        padding: 0 10px 0 0;
+        text-shadow: 0 1px #fdfdfd;
+        color: #777;
+        text-decoration: none;
+        height: 22px;
+        line-height: 22px;
+        cursor: pointer;
+        background: url('http://s2.music.126.net/style/web2/img/button2.png') right -27px no-repeat
+        &:hover
+          background-position: right -1430px;
+        i
+          float: left;
+          font-style: normal;
+          position: relative;
+          zoom: 1;
+          height: 22px;
+          line-height: 22px;
+          padding: 0 3px 0 13px;
+          background: url('http://s2.music.126.net/style/web2/img/button2.png') 0 0 no-repeat
+          &:hover
+            background-position: 0 -1400px;
+    .intro
+      margin-top: 4px;
+      line-height: 18px;
+      color: #666;
+      word-wrap: break-word;
