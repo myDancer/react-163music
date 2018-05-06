@@ -157,7 +157,7 @@ class PlayBar extends React.Component {
   // 音频加载
   handleProgress() {
     const timeRanges = this.audio.buffered
-    console.log(timeRanges)
+    // console.log(timeRanges)
     if (timeRanges.length >= 1) {
       const timeBuffered = timeRanges.end(timeRanges.length - 1)
       const bufferPercent = (timeBuffered / this.audio.duration) * 100

@@ -49,7 +49,6 @@ export const fetchSong = () => (dispatch) => {
     .get(songDetail, { dataType: 'json' })
     .then((res) => {
       dispatch(fetchEndAct(res.data))
-      console.log(dispatch(fetchEndAct(res.data)))
     })
     .catch((err) => {
       console.log('====================================')
