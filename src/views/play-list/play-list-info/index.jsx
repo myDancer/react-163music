@@ -18,7 +18,6 @@ class SongInfo extends React.Component {
   }
   render() {
     const { playlist } = this.props
-    console.log(this.props)
     return (
       <div className="song-wrap">
         <div className="img-wrap">

@@ -1,15 +1,37 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { formatDuration } from '../../../common/js/util'
+import { changeCurrent } from '../../../redux/preparelist.redux'
 import './style.styl'
 
+@connect( // 将store和组件联系在一起
+  state => ({ // mapStateToProps
+    prepareObj: state.prepareListReducer,
+  }),
+  { // mapDispatchToProps
+    changeCurrent,
+  },
+)
 export default class SongInfo extends React.Component {
   constructor(props) {
     super(props)
     this.handleMouseOver = this.handleMouseOver.bind(this)
+    this.handleMouseOut = this.handleMouseOut.bind(this)
+    this.playMuisc = this.playMuisc.bind(this)
+    this.state = {
+      itemShow: '',
+    }
+    console.log(this.props)
   }
-  handleMouseOver() {
-    console.log(this)
+  handleMouseOver(index) {
+    this.setState({ itemShow: index })
+  }
+  handleMouseOut() {
+    this.setState({ itemShow: '' })
+  }
+  playMuisc(item) {
+    this.props.changeCurrent(item)
   }
   render() {
     const { playlist } = this.props
@@ -35,13 +57,21 @@ export default class SongInfo extends React.Component {
                 <th><div className="thbg th5" /></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody onMouseOut={this.handleMouseOut} >
               {
                 playlist.tracks && playlist.tracks.map((item, index) => (
-                  <tr key={item.id} className="song-tr" onMouseOver={this.handleMouseOver}>
-                    <td><div className="left"><button className="icn-play" /><span className="num">{index + 1}</span></div></td>
+                  <tr key={item.id} className="song-tr" onMouseOver={() => this.handleMouseOver(index)}>
+                    <td><div className="left"><button className="icn-play" onClick={() => this.playMuisc(item)} /><span className="num">{index + 1}</span></div></td>
                     <td><div className="txt"><Link className="init-link" to="song/123">{item.name}</Link></div></td>
-                    <td><span className="song-dur">{formatDuration(item.dt)}</span></td>
+                    <td>
+                      <span style={{ display: this.state.itemShow === index ? 'none' : '' }} className="song-dur">{formatDuration(item.dt)}</span>
+                      <div style={{ display: this.state.itemShow === index ? '' : 'none' }} className="hshow">
+                        <span className="icn icn-add" />
+                        <span className="icn-colle" />
+                        <span className="icn-share" />
+                        <span className="icn-down" />
+                      </div>
+                    </td>
                     <td><div className="text"><Link className="init-link" to="song/123">{item.ar[0].name}</Link></div></td>
                     <td><div className="text"><Link className="init-link" to="song/123">{item.al.name}</Link></div></td>
                   </tr>

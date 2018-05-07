@@ -47,7 +47,7 @@ const fetchEndAct = PLAYLIST => ({
   type: PLAYLIST_FETCH_END,
   payload: PLAYLIST,
 })
-
+// 清除数据
 const clearAct = () => ({
   type: PLAYLIST_CLEAR,
 })
