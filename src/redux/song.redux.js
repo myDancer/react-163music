@@ -44,7 +44,6 @@ const fetchEndAct = datas => ({
 
 // login operation
 export const fetchSong = id => (dispatch) => {
-  console.log('fetchSong')
   dispatch(fetchStartAct())
   axios
     .get(songDetail(id), { dataType: 'json' })
