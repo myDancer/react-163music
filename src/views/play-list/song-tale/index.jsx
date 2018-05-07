@@ -23,7 +23,6 @@ export default class SongInfo extends React.Component {
     this.state = {
       itemShow: '',
     }
-    console.log(this.props)
   }
   handleMouseOver(index) {
     this.setState({ itemShow: index })

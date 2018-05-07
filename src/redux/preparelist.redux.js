@@ -4,7 +4,29 @@ const CHANGE_CURRENT = 'CHANGE_CURRENT'
 
 // initial State
 const initState = {
-  current: {},
+  current: {
+    name: '小幸运',
+    id: 33206214,
+    ar: [
+      {
+        id: 9548,
+        name: '田馥甄',
+        tns: [],
+        alias: [],
+      },
+    ],
+    alia: [
+      '电影《我的少女时代》主题曲',
+    ],
+    al: {
+      id: 3190030,
+      name: '小幸运',
+      picUrl: 'http://p1.music.126.net/7Y4fr1KatzK2xELl_wnkHw==/109951163281534779.jpg',
+      tns: [],
+      pic_str: '109951163281534779',
+      pic: 109951163281534780,
+    },
+  },
   preparelist: [],
 }
 

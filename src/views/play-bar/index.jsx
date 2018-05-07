@@ -177,7 +177,6 @@ class PlayBar extends React.Component {
   render() {
     const { data } = this.props.songObj
     const { current } = this.props.prepareObj
-    console.log(this.props)
     return (
       <div className="playbar-wrap" onMouseMove={this.handleMouseMove} style={{ userSelect: this.state.sliderOption.isDrag ? 'none' : 'text' }}>
         <audio controls="controls" src={data.length && data[0].url} ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
