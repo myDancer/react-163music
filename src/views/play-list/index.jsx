@@ -21,7 +21,7 @@ class PlyaList extends React.Component {
   // constructor(props) {
   //   super(props)
   // }
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchPlayList(this.props.match.params.id)
   }
   componentWillUnmount() {
