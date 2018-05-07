@@ -63,18 +63,18 @@ li {
     width: 5px;
     height: 5px;
 }
-
+/* 滚动条的轨道（里面装有Thumb） */
 ::-webkit-scrollbar-track-piece {
     background-color: rgba(0, 0, 0, 0.2);
     -webkit-border-radius: 6px;
 }
-
+/* 滚动条里面的小方块垂直方向 */
 ::-webkit-scrollbar-thumb:vertical {
     height: 5px;
     background-color: rgba(125, 125, 125, 0.7);
     -webkit-border-radius: 6px;
 }
-
+/* 滚动条里面的小方块水平方向 */
 ::-webkit-scrollbar-thumb:horizontal {
     width: 5px;
     background-color: rgba(125, 125, 125, 0.7);

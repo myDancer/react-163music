@@ -18,20 +18,20 @@ import './style.styl'
   },
 )
 class PlyaList extends React.Component {
-  constructor(props) {
-    super(props)
-    console.log(this.props.match.params.id)
-  }
-  // componentDidMount() {
-  //   console.log()
+  // constructor(props) {
+  //   super(props)
   // }
+  componentDidMount() {
+    this.props.fetchPlayList(this.props.match.params.id)
+  }
   render() {
+    const { playlist } = this.props.playlistObj
     return (
       <div className="song-bg">
         <div className="song-warp">
           <div className="song-info">
-            <PlyaListInfo />
-            <SongTable />
+            <PlyaListInfo playlist={playlist} />
+            <SongTable playlist={playlist} />
             <Comment />
           </div>
         </div>

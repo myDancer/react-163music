@@ -61,9 +61,10 @@
         background-position: 0 0;
         background-repeat: repeat-x;
       td
-        padding: 6px 10px;
-        line-height: 18px;
+        padding: 5px 10px;
+        line-height: 1;
         text-align: left;
+        vertical-align: middle;
       .first
         width: 74px;
       .thbg
@@ -83,9 +84,7 @@
       .song-tr:nth-child(odd)
         background-color: #f7f7f7;
       .left
-        padding: 6px 10px;
-        line-height: 18px;
-        text-align: left;
+        height: 18px;
         .icn-play
           border: 0;
           outline: 0;
@@ -100,3 +99,20 @@
           color: #999;
       .song-dur
         color: #666;
+      .txt
+        position: relative;
+        display: inline-block;
+        padding-right: 25px;
+        margin-right: -25px;
+        max-width: 99%;
+        height: 20px;
+        line-height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      .text
+        position: relative;
+        zoom: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;

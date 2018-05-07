@@ -8,7 +8,7 @@ const PLAYLIST_FETCH_END = 'PLAYLIST_FETCH_END'
 // initial State
 const initState = {
   isFetching: false,
-  data: [],
+  playlist: {},
 }
 
 // reducer
