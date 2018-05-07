@@ -32,6 +32,7 @@ export default class SongInfo extends React.Component {
   }
   playMuisc(item) {
     this.props.changeCurrent(item)
+    console.log(this.props)
   }
   render() {
     const { playlist } = this.props
@@ -62,7 +63,7 @@ export default class SongInfo extends React.Component {
                 playlist.tracks && playlist.tracks.map((item, index) => (
                   <tr key={item.id} className="song-tr" onMouseOver={() => this.handleMouseOver(index)}>
                     <td><div className="left"><button className="icn-play" onClick={() => this.playMuisc(item)} /><span className="num">{index + 1}</span></div></td>
-                    <td><div className="txt"><Link className="init-link" to="song/123">{item.name}</Link></div></td>
+                    <td><div className="txt"><Link className="init-link" to={`song/${item.id}`}>{item.name}</Link></div></td>
                     <td>
                       <span style={{ display: this.state.itemShow === index ? 'none' : '' }} className="song-dur">{formatDuration(item.dt)}</span>
                       <div style={{ display: this.state.itemShow === index ? '' : 'none' }} className="hshow">
@@ -72,7 +73,7 @@ export default class SongInfo extends React.Component {
                         <span className="icn-down" />
                       </div>
                     </td>
-                    <td><div className="text"><Link className="init-link" to="song/123">{item.ar[0].name}</Link></div></td>
+                    <td><div className="text"><Link className="init-link" to={`song/${item.id}`}>{item.ar[0].name}</Link></div></td>
                     <td><div className="text"><Link className="init-link" to="song/123">{item.al.name}</Link></div></td>
                   </tr>
                 ))
