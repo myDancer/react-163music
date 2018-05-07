@@ -4,6 +4,7 @@ import '../config/mock'
 // constant
 const PLAYLIST_FETCH_START = 'PLAYLIST_FETCH_START'
 const PLAYLIST_FETCH_END = 'PLAYLIST_FETCH_END'
+const PLAYLIST_CLEAR = 'PLAYLIST_CLEAR'
 
 // initial State
 const initState = {
@@ -25,6 +26,11 @@ export const playListReducer = (state = initState, action) => {
         isFetching: false,
         ...action.payload,
       }
+    case PLAYLIST_CLEAR:
+      return {
+        isFetching: false,
+        playlist: {},
+      }
     default:
       return {
         ...state,
@@ -42,6 +48,10 @@ const fetchEndAct = PLAYLIST => ({
   payload: PLAYLIST,
 })
 
+const clearAct = () => ({
+  type: PLAYLIST_CLEAR,
+})
+
 // login operation
 export const fetchPlayList = id => (dispatch) => {
   dispatch(fetchStartAct())
@@ -55,4 +65,8 @@ export const fetchPlayList = id => (dispatch) => {
       console.log(err)
       console.log('====================================')
     })
+}
+
+export const clearPlayList = () => (dispatch) => {
+  dispatch(clearAct())
 }

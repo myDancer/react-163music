@@ -5,7 +5,7 @@ import PlyaListInfo from './play-list-info'
 import SongTable from './song-tale'
 import Comment from '../song/comment'
 import Associate from '../song/associate'
-import { fetchPlayList } from '../../redux/playlist.redux'
+import { fetchPlayList, clearPlayList } from '../../redux/playlist.redux'
 import './style.styl'
 
 
@@ -14,7 +14,7 @@ import './style.styl'
     playlistObj: state.playListReducer,
   }),
   { // mapDispatchToProps
-    fetchPlayList,
+    fetchPlayList, clearPlayList,
   },
 )
 class PlyaList extends React.Component {
@@ -23,6 +23,9 @@ class PlyaList extends React.Component {
   // }
   componentDidMount() {
     this.props.fetchPlayList(this.props.match.params.id)
+  }
+  componentWillUnmount() {
+    this.props.clearPlayList()
   }
   render() {
     const { playlist } = this.props.playlistObj
