@@ -43,10 +43,11 @@ const fetchEndAct = datas => ({
 })
 
 // login operation
-export const fetchSong = () => (dispatch) => {
+export const fetchSong = id => (dispatch) => {
+  console.log('fetchSong')
   dispatch(fetchStartAct())
   axios
-    .get(songDetail, { dataType: 'json' })
+    .get(songDetail(id), { dataType: 'json' })
     .then((res) => {
       dispatch(fetchEndAct(res.data))
     })

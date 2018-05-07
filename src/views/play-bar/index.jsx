@@ -2,15 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { formatCurrentTime } from '../../common/js/util'
+import { changeCurrent } from '../../redux/preparelist.redux'
 import { fetchSong } from '../../redux/song.redux'
 import './style.styl'
 
 @connect( // 将store和组件联系在一起
   state => ({ // mapStateToProps
     songObj: state.song,
+    prepareObj: state.prepareListReducer,
   }),
   { // mapDispatchToProps
-    fetchSong,
+    fetchSong, changeCurrent,
   },
 )
 class PlayBar extends React.Component {
@@ -174,6 +176,8 @@ class PlayBar extends React.Component {
   }
   render() {
     const { data } = this.props.songObj
+    const { current } = this.props.prepareObj
+    console.log(this.props)
     return (
       <div className="playbar-wrap" onMouseMove={this.handleMouseMove} style={{ userSelect: this.state.sliderOption.isDrag ? 'none' : 'text' }}>
         <audio controls="controls" src={data.length && data[0].url} ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
@@ -185,11 +189,11 @@ class PlayBar extends React.Component {
               <button onClick={this.playOrPause} className={this.state.playing ? 'play-btn btn-paused' : 'play-btn btn-play'} title="播放/暂停">播放/暂停</button>
               <button className="play-btn btn-n" title="下一首">下一首</button>
             </div>
-            <div className="headimg"><img alt="歌手头像" src="http://p1.music.126.net/YNP-XzDaRxWFUeN9B-fv3Q==/18659811836904204.jpg?param=34y34" /></div>
+            <div className="headimg"><img alt="歌手头像" src={`${current.al && current.al.picUrl}?param=34y34`} /></div>
             <div className="play">
               <div className="wrods">
-                <Link className="wrods-img1" to="./123">我与你 - Album Version</Link>
-                <span>张学友</span>
+                <Link className="wrods-img1" to="./123">{current && current.name}</Link>
+                <span>{current.ar && current.ar[0].name}</span>
                 <Link className="wrods-img2" to="./123" />
               </div>
               <div className="pbar">

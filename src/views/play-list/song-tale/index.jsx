@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { formatDuration } from '../../../common/js/util'
 import { changeCurrent } from '../../../redux/preparelist.redux'
+import { fetchSong } from '../../../redux/song.redux'
 import './style.styl'
 
 @connect( // 将store和组件联系在一起
@@ -10,7 +11,7 @@ import './style.styl'
     prepareObj: state.prepareListReducer,
   }),
   { // mapDispatchToProps
-    changeCurrent,
+    changeCurrent, fetchSong,
   },
 )
 export default class SongInfo extends React.Component {
@@ -32,7 +33,7 @@ export default class SongInfo extends React.Component {
   }
   playMuisc(item) {
     this.props.changeCurrent(item)
-    console.log(this.props)
+    this.props.fetchSong(item.id)
   }
   render() {
     const { playlist } = this.props
