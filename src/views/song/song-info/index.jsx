@@ -5,6 +5,20 @@ import { changeCurrent } from '../../../redux/preparelist.redux'
 import { fetchSong } from '../../../redux/song.redux'
 import './style.styl'
 
+const parseLyric = (lyricStr) => {
+  let lines = lyricStr.split('\n')
+  const pattern = /\[\d{2}:\d{2}.\d{1,3}\]/g
+  let lyric = ''
+  while (!pattern.test(lines[0])) {
+    lines = lines.slice(1)
+  }
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i]
+    const value = line.replace(pattern, '')
+    lyric = `${lyric}${value}\n`
+  }
+  return lyric
+}
 @connect( // 将store和组件联系在一起
   state => ({ // mapStateToProps
     prepareObj: state.prepareListReducer,
@@ -33,8 +47,14 @@ class SongInfo extends React.Component {
   }
   render() {
     const { songs } = this.props
+    const { lrc } = this.props
+    let lyric = ''
+    if (lrc) {
+      console.log(lrc.lyric)
+      lyric = parseLyric(lrc.lyric)
+    }
     return (
-      <div className="song-info">
+      <div className="song-info-wrap">
         <div className="img-wrap">
           <div className="img-cover">
             <img src={`${songs.length && songs[0].al.picUrl}?param=130y130`} alt="图片" />
@@ -66,19 +86,7 @@ class SongInfo extends React.Component {
             <a className="info-btn icn-white"><i className="btn-i icn-comment">(4704)</i></a>
           </div>
           <div className="lyric-content">
-            作曲 : 王治平<br />
-            作词 : 姚谦<br />
-            谁能够将天上月亮电源关掉<br />
-            它把你我沉默照得太明了<br />
-            关於爱情我们了解的太少<br />
-            爱了以后又不觉可靠<br />
-            你和我看着霓虹<br />
-            穿过了爱情的街道<br />
-            有种不真实味道<br />
-            我们一直忘了要搭一座挢<br />
-            到对方的心底瞧一瞧<br />
-            体会彼此什麽才最需要<br />
-            别再寂寞的拥抱<br />
+            {lyric}
           </div>
         </div>
       </div>

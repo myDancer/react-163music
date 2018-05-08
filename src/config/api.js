@@ -14,6 +14,11 @@ export function getSongDetail(id = '29715187') {
   return `http://api.mtnhao.com/song/detail?ids=${id}`
 }
 
+// 根据id获取歌词
+export function getLyric(id = '29715187') {
+  return `http://api.mtnhao.com/lyric?id=${id}`
+}
+
 // 根据歌单id查找歌单
 export function playList(id) {
   return `http://api.mtnhao.com/toplist/detail/mm?id=${id}`
