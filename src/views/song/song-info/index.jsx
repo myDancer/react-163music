@@ -92,7 +92,7 @@ class SongInfo extends React.Component {
           <div className="lyric-content">
             {shortLyric}
             <div style={{ display: this.state.moreLyr ? 'block' : 'none' }}>{moreLyric}</div>
-            <button onClick={this.extendsLyr} className="more">{this.state.moreLyr ? '收起' : '展开'}<i className="down" /></button>
+            <button onClick={this.extendsLyr} className="more">{this.state.moreLyr ? '收起' : '展开'}<i className={`down ${this.state.moreLyr ? 'up' : ''}`} /></button>
           </div>
         </div>
       </div>
