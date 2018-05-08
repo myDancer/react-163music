@@ -1,13 +1,29 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
+import { changeCurrent } from '../../../redux/preparelist.redux'
+import { fetchSong } from '../../../redux/song.redux'
 import './style.styl'
 
+@connect( // 将store和组件联系在一起
+  state => ({ // mapStateToProps
+    prepareObj: state.prepareListReducer,
+  }),
+  { // mapDispatchToProps
+    changeCurrent, fetchSong,
+  },
+)
 class SongInfo extends React.Component {
   constructor(props) {
     super(props)
     this.handleMouseOver = this.handleMouseOver.bind(this)
     this.handleMouseOut = this.handleMouseOut.bind(this)
+    this.playMusic = this.playMusic.bind(this)
     this.state = { showbg: 'ply' }
+  }
+  playMusic() {
+    this.props.changeCurrent(this.props.songs[0])
+    this.props.fetchSong(this.props.match.params.id)
   }
   handleMouseOver() {
     this.setState({ showbg: 'plyhover' })
@@ -17,7 +33,6 @@ class SongInfo extends React.Component {
   }
   render() {
     const { songs } = this.props
-    console.log(this.props)
     return (
       <div className="song-wrap">
         <div className="img-wrap">
@@ -44,7 +59,7 @@ class SongInfo extends React.Component {
             所属专辑：<span><Link to="album/123">{songs.length && songs[0].al.name}</Link></span>
           </p>
           <div className="btn-group">
-            <a className="info-btn icn-blue" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}><i className="btn-i icn-play"><em className={this.state.showbg} />播放</i></a>
+            <a className="info-btn icn-blue" onClick={this.playMusic} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}><i className="btn-i icn-play"><em className={this.state.showbg} />播放</i></a>
             <a className="info-btn icn-white"><i className="btn-i icn-collect">收藏</i></a>
             <a className="info-btn icn-white"><i className="btn-i icn-share">分享</i></a>
             <a className="info-btn icn-white"><i className="btn-i icn-download">下载</i></a>
@@ -71,4 +86,4 @@ class SongInfo extends React.Component {
   }
 }
 
-export default SongInfo
+export default withRouter(SongInfo)
