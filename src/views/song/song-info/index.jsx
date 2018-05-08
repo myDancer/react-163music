@@ -34,7 +34,7 @@ class SongInfo extends React.Component {
   render() {
     const { songs } = this.props
     return (
-      <div className="song-wrap">
+      <div className="song-info">
         <div className="img-wrap">
           <div className="img-cover">
             <img src={`${songs.length && songs[0].al.picUrl}?param=130y130`} alt="图片" />

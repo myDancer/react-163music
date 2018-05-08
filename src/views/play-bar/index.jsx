@@ -133,30 +133,41 @@ class PlayBar extends React.Component {
       currentTime: formatCurrentTime(this.audio.currentTime),
     })
   }
-  // 播放暂停按钮
+  // 播放暂停按钮事件
   playOrPause() {
     if (!this.state.playing) {
-      this.setState({
-        playing: true,
-      })
-      this.audio.play()
-      this.curTimeInterval = setInterval(() => {
-        const per = parseFloat(this.audio.currentTime / this.audio.duration) * 100
-        this.setState({ currentTime: formatCurrentTime(this.audio.currentTime), currWidth: `${per}%` })
-      }, 400)
+      this.play()
     } else {
-      this.setState({
-        playing: false,
-      })
-      this.audio.pause()
-      clearInterval(this.curTimeInterval)
+      this.pause()
     }
+  }
+  // 播放
+  play() {
+    this.setState({
+      playing: true,
+    })
+    this.audio.play()
+    this.curTimeInterval = setInterval(() => {
+      const per = parseFloat(this.audio.currentTime / this.audio.duration) * 100
+      this.setState({ currentTime: formatCurrentTime(this.audio.currentTime), currWidth: `${per}%` })
+      if (per === 100) {
+        this.pause()
+      }
+    }, 400)
+  }
+  // 暂停
+  pause() {
+    this.setState({
+      playing: false,
+    })
+    this.audio.pause()
+    clearInterval(this.curTimeInterval)
   }
   // 音频可以播放
   handleCanPlay() {
     this.setState({ audioLoading: false })
     if (this.props.prepareObj.autoPlay) {
-      this.playOrPause()
+      this.play()
     }
   }
   // 音频加载
