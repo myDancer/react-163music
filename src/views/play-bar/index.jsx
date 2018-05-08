@@ -191,7 +191,7 @@ class PlayBar extends React.Component {
             <div className="headimg"><img alt="歌手头像" src={`${current.al && current.al.picUrl}?param=34y34`} /></div>
             <div className="play">
               <div className="wrods">
-                <Link className="wrods-img1" to="./123">{current && current.name}</Link>
+                <Link className="wrods-img1" to={`/song/${current.id}`}>{current && current.name}</Link>
                 <span>{current.ar && current.ar[0].name}</span>
                 <Link className="wrods-img2" to="./123" />
               </div>
