@@ -6,8 +6,11 @@ import { fetchSong } from '../../../redux/song.redux'
 import './style.styl'
 
 const parseLyric = (lyricStr) => {
-  const lyric = lyricStr.replace(/\[\d{2}:\d{2}.\d{1,3}\]/g, '')
-  return lyric
+  let lyricArry = []
+  const lyric = lyricStr.replace(/\[\d{2}[:.]\d{2}.\d{1,3}\]/g, '')
+  lyricArry = lyric.split('\n')
+  console.log(lyricArry)
+  return lyricArry
 }
 @connect( // 将store和组件联系在一起
   state => ({ // mapStateToProps
@@ -23,7 +26,15 @@ class SongInfo extends React.Component {
     this.handleMouseOver = this.handleMouseOver.bind(this)
     this.handleMouseOut = this.handleMouseOut.bind(this)
     this.playMusic = this.playMusic.bind(this)
-    this.state = { showbg: 'ply' }
+    this.extendsLyr = this.extendsLyr.bind(this)
+    this.state = { showbg: 'ply', moreLyr: false }
+  }
+  extendsLyr() {
+    if (this.state.moreLyr) {
+      this.setState({ moreLyr: false })
+    } else {
+      this.setState({ moreLyr: true })
+    }
   }
   playMusic() {
     this.props.changeCurrent(this.props.songs[0])
@@ -38,9 +49,13 @@ class SongInfo extends React.Component {
   render() {
     const { songs } = this.props
     const { lrc } = this.props
-    let lyric = ''
+    let lyricArry = []
+    let shortLyric = ''
+    let moreLyric = ''
     if (lrc) {
-      lyric = parseLyric(lrc.lyric)
+      lyricArry = parseLyric(lrc.lyric)
+      shortLyric = lyricArry.slice(0, 13).join('\n')
+      moreLyric = lyricArry.slice(13).join('\n')
     }
     return (
       <div className="song-info-wrap">
@@ -75,7 +90,9 @@ class SongInfo extends React.Component {
             <a className="info-btn icn-white"><i className="btn-i icn-comment">(4704)</i></a>
           </div>
           <div className="lyric-content">
-            {lyric}
+            {shortLyric}
+            <div style={{ display: this.state.moreLyr ? 'block' : 'none' }}>{moreLyric}</div>
+            <button onClick={this.extendsLyr} className="more">{this.state.moreLyr ? '收起' : '展开'}<i className="down" /></button>
           </div>
         </div>
       </div>
