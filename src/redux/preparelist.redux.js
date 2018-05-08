@@ -5,12 +5,12 @@ const CHANGE_CURRENT = 'CHANGE_CURRENT'
 // initial State
 const initState = {
   current: {
-    name: '小幸运',
-    id: 33206214,
+    name: '我与你',
+    id: 29715187,
     ar: [
       {
         id: 9548,
-        name: '田馥甄',
+        name: '张学友',
         tns: [],
         alias: [],
       },
@@ -21,7 +21,7 @@ const initState = {
     al: {
       id: 3190030,
       name: '小幸运',
-      picUrl: 'http://p1.music.126.net/7Y4fr1KatzK2xELl_wnkHw==/109951163281534779.jpg',
+      picUrl: 'http://p1.music.126.net/HnFqFLQAJ-w9h4aKympCeA==/2537672838499047.jpg',
       tns: [],
       pic_str: '109951163281534779',
       pic: 109951163281534780,
