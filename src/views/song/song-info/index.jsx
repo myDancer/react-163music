@@ -16,11 +16,13 @@ class SongInfo extends React.Component {
     this.setState({ showbg: 'ply' })
   }
   render() {
+    const { songs } = this.props
+    console.log(this.props)
     return (
       <div className="song-wrap">
         <div className="img-wrap">
           <div className="img-cover">
-            <img src="http://p1.music.126.net/ImOQNmJZTzogPdt0-AsyDA==/19045740416582430.jpg?param=130y130" alt="图片" />
+            <img src={`${songs.length && songs[0].al.picUrl}?param=130y130`} alt="图片" />
             <span className="img-msk" />
           </div>
           <div className="out">
@@ -32,14 +34,14 @@ class SongInfo extends React.Component {
           <div className="head">
             <i className="lab" />
             <div className="title">
-              <em>电台情歌</em>
+              <em>{songs.length && songs[0].name}</em>
             </div>
           </div>
           <p className="des">
-            歌手：<span><Link to="singer/123">莫文蔚</Link></span>
+            歌手：<span><Link to="singer/123">{songs.length && songs[0].ar[0].name}</Link></span>
           </p>
           <p className="des">
-            所属专辑：<span><Link to="album/123">做自己 to be</Link></span>
+            所属专辑：<span><Link to="album/123">{songs.length && songs[0].al.name}</Link></span>
           </p>
           <div className="btn-group">
             <a className="info-btn icn-blue" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}><i className="btn-i icn-play"><em className={this.state.showbg} />播放</i></a>

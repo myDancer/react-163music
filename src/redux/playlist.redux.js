@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { playList } from '../config/api'
-import '../config/mock'
 // constant
 const PLAYLIST_FETCH_START = 'PLAYLIST_FETCH_START'
 const PLAYLIST_FETCH_END = 'PLAYLIST_FETCH_END'

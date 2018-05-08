@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { recommendList } from '../config/api'
-import '../config/mock'
 // constant
 const RECOMMEND_FETCH_START = 'RECOMMEND_FETCH_START'
 const RECOMMEND_FETCH_END = 'RECOMMEND_FETCH_END'
