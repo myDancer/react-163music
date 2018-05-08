@@ -155,6 +155,9 @@ class PlayBar extends React.Component {
   // 音频可以播放
   handleCanPlay() {
     this.setState({ audioLoading: false })
+    if (this.props.prepareObj.autoPlay) {
+      this.playOrPause()
+    }
   }
   // 音频加载
   handleProgress() {

@@ -28,6 +28,7 @@ const initState = {
     },
   },
   preparelist: [],
+  autoPlay: false,
 }
 
 // reducer
@@ -41,6 +42,7 @@ export const prepareListReducer = (state = initState, action) => {
     case CHANGE_CURRENT:
       return {
         ...state,
+        autoPlay: true,
         current: action.payload,
       }
     default:

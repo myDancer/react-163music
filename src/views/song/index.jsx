@@ -20,7 +20,6 @@ class Song extends React.Component {
   }
   render() {
     const { songs } = this.props.songObj
-    console.log(this.props)
     return (
       <div className="song-bg">
         <div className="song-warp">
