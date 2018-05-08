@@ -6,17 +6,7 @@ import { fetchSong } from '../../../redux/song.redux'
 import './style.styl'
 
 const parseLyric = (lyricStr) => {
-  let lines = lyricStr.split('\n')
-  const pattern = /\[\d{2}:\d{2}.\d{1,3}\]/g
-  let lyric = ''
-  while (!pattern.test(lines[0])) {
-    lines = lines.slice(1)
-  }
-  for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i]
-    const value = line.replace(pattern, '')
-    lyric = `${lyric}${value}\n`
-  }
+  const lyric = lyricStr.replace(/\[\d{2}:\d{2}.\d{1,3}\]/g, '')
   return lyric
 }
 @connect( // 将store和组件联系在一起
@@ -50,7 +40,6 @@ class SongInfo extends React.Component {
     const { lrc } = this.props
     let lyric = ''
     if (lrc) {
-      console.log(lrc.lyric)
       lyric = parseLyric(lrc.lyric)
     }
     return (
