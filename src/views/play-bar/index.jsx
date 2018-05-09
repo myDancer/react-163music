@@ -15,7 +15,7 @@ import './style.styl'
     fetchSong, changeCurrent,
   },
 )
-class PlayBar extends React.Component {
+class PlayBar extends React.PureComponent {
   constructor(props) {
     super(props)
     this.VOLLONG = 82
