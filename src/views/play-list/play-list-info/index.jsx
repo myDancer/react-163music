@@ -3,19 +3,10 @@ import { Link } from 'react-router-dom'
 import { formatTimeStamp } from '../../../common/js/util'
 import './style.styl'
 
-class SongInfo extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleMouseOver = this.handleMouseOver.bind(this)
-    this.handleMouseOut = this.handleMouseOut.bind(this)
-    this.state = { showbg: 'ply' }
-  }
-  handleMouseOver() {
-    this.setState({ showbg: 'plyhover' })
-  }
-  handleMouseOut() {
-    this.setState({ showbg: 'ply' })
-  }
+class SongInfo extends React.PureComponent {
+  // constructor(props) {
+  //   super(props)
+  // }
   render() {
     const { playlist } = this.props
     return (
@@ -40,7 +31,7 @@ class SongInfo extends React.Component {
             <span className="time">{formatTimeStamp(playlist.createTime)} 创建</span>
           </div>
           <div className="btn-group">
-            <a className="info-btn icn-blue" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}><i className="btn-i icn-play"><em className={this.state.showbg} />播放</i></a>
+            <a className="info-btn icn-blue" onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}><i className="btn-i icn-play"><em className="ply" />播放</i></a>
             <a className="info-btn icn-white"><i className="btn-i icn-collect">({playlist.subscribedCount})</i></a>
             <a className="info-btn icn-white"><i className="btn-i icn-share">({playlist.shareCount})</i></a>
             <a className="info-btn icn-white"><i className="btn-i icn-download">下载</i></a>
