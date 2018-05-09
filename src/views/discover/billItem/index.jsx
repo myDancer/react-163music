@@ -20,6 +20,11 @@ const BillItem = props => (
           <li key={item.link}>
             <span className="nr">{index + 1}</span>
             <Link className="nm" to={item.link}>{item.songName}</Link>
+            <div className="oper">
+              <button className="init-icn icn-ply" />
+              <button className="init-icn icn-add" />
+              <button className="init-icn icn-colect" />
+            </div>
           </li>
         ))}
       </ol>

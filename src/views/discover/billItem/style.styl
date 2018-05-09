@@ -55,6 +55,10 @@
     li
       height: 32px;
       color: #666;
+      position: relative;
+      &:hover
+        .oper
+          display: block;
       &:nth-of-type(1),&:nth-of-type(2),&:nth-of-type(3)
         color: #c10d0c;
       .nm
@@ -64,6 +68,8 @@
         vertical-align: middle;
         color: #000;
         line-height: 32px;
+        &:hover
+          text-decoration: underline;
       .nr
         float: left;
         position: relative;
@@ -73,6 +79,36 @@
         text-align: center;
         font-size: 16px;
         vertical-align: middle;
+      .oper
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 8px;
+        vertical-align: middle;
+        width: 82px;
+        .init-icn
+          float: left;
+          width: 17px;
+          height: 17px;
+          margin-right: 10px;
+          outline: 0;
+          border: 0;
+          cursor: pointer;
+          background: url("http://s2.music.126.net/style/web2/img/index/index.png") no-repeat 0 9999px;
+        .icn-ply
+          background-position: -267px -268px;
+          &:hover
+            background-position: -267px -288px;
+        .icn-add
+          background: url("http://s2.music.126.net/style/web2/img/icon.png") no-repeat 0 9999px;
+          background-position: 0 -700px;
+          margin-top: 2px;
+          &:hover
+            background-position: -22px -700px;
+        .icn-colect
+          background-position: -297px -268px;
+          &:hover
+            background-position: -297px -288px;
   .more
     clear: both;
     height: 32px;
