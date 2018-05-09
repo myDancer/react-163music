@@ -81,8 +81,15 @@
         content: '歌手'
       .th5:after
         content: '专辑'
-      .song-tr:nth-child(odd)
-        background-color: #f7f7f7;
+      .song-tr
+        &:nth-child(odd)
+          background-color: #f7f7f7;
+        &:hover
+          .song-dur
+            display: none;
+          .hshow
+            display: block;
+            float: left;
       .left
         height: 18px;
         .icn-play
@@ -104,6 +111,7 @@
       .song-dur
         color: #666;
       .hshow
+        display: none;
         float: left;
         span
           float: left;

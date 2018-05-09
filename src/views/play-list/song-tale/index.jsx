@@ -17,18 +17,7 @@ import './style.styl'
 export default class SongInfo extends React.Component {
   constructor(props) {
     super(props)
-    this.handleMouseOver = this.handleMouseOver.bind(this)
-    this.handleMouseOut = this.handleMouseOut.bind(this)
     this.playMuisc = this.playMuisc.bind(this)
-    this.state = {
-      itemShow: '',
-    }
-  }
-  handleMouseOver(index) {
-    this.setState({ itemShow: index })
-  }
-  handleMouseOut() {
-    this.setState({ itemShow: '' })
   }
   playMuisc(item) {
     this.props.changeCurrent(item)
@@ -61,12 +50,12 @@ export default class SongInfo extends React.Component {
             <tbody onMouseOut={this.handleMouseOut} >
               {
                 playlist.tracks && playlist.tracks.map((item, index) => (
-                  <tr key={item.id} className="song-tr" onMouseOver={() => this.handleMouseOver(index)}>
+                  <tr key={item.id} className="song-tr">
                     <td><div className="left"><button className="icn-play" onClick={() => this.playMuisc(item)} /><span className="num">{index + 1}</span></div></td>
                     <td><div className="txt"><Link className="init-link" title={item.name} to={`/song/${item.id}`}>{item.name}</Link></div></td>
                     <td>
-                      <span style={{ display: this.state.itemShow === index ? 'none' : '' }} className="song-dur">{formatDuration(item.dt)}</span>
-                      <div style={{ display: this.state.itemShow === index ? '' : 'none' }} className="hshow">
+                      <span className="song-dur">{formatDuration(item.dt)}</span>
+                      <div className="hshow">
                         <span className="icn icn-add" />
                         <span className="icn-colle" />
                         <span className="icn-share" />
