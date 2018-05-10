@@ -6,8 +6,16 @@ import { playListReducer } from './playlist.redux'
 import { prepareListReducer } from './preparelist.redux'
 import { songdetail } from './songdetail.redux'
 import { lyricReducer } from './lyric.redux'
+import { currentlyricReducer } from './currentlyric.redux'
 
 
 export default combineReducers({
-  swiper, recommendReducer, song, playListReducer, prepareListReducer, songdetail, lyricReducer,
+  swiper,
+  recommendReducer,
+  song,
+  playListReducer,
+  prepareListReducer,
+  songdetail,
+  lyricReducer,
+  currentlyricReducer,
 })
