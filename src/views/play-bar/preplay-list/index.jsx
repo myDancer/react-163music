@@ -1,6 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { formatDuration } from '../../../common/js/util'
+import { changeCurrent } from '../../../redux/preparelist.redux'
 import './style.styl'
 
+@connect( // 将store和组件联系在一起
+  state => ({ // mapStateToProps
+    prepareObj: state.prepareListReducer,
+  }),
+  { // mapDispatchToProps
+    changeCurrent,
+  },
+)
 class PreplayList extends React.Component {
   constructor(props) {
     super(props)
@@ -12,6 +23,8 @@ class PreplayList extends React.Component {
     this.setState({ preplayVisible: !this.state.preplayVisible })
   }
   render() {
+    const { current, preparelist } = this.props.prepareObj
+    console.log(this.props.prepareObj)
     return (
       <div className="preplay" style={{ display: this.state.preplayVisible ? 'block' : 'none' }}>
         <div className="preplay-hd">
@@ -19,7 +32,7 @@ class PreplayList extends React.Component {
           <button className="adddall">收藏全部</button>
           <span className="line" />
           <button className="clear">清除</button>
-          <p>我与你</p>
+          <p>{current && current.name}</p>
           <button className="close" onClick={this.prePlayVisible} >X</button>
         </div>
         <div className="preplay-bd">
@@ -27,14 +40,16 @@ class PreplayList extends React.Component {
           <div className="msk" />
           <div className="song-list">
             <ul>
-              <li>
-                <div className="col col1"><i className="playicn" /></div>
-                <div className="col col2">我与你</div>
-                <div className="col col3"><div className="icns"><i className="icn icn1" /><i className="icn icn2" /><i className="icn icn3" /><i className="icn icn4" /></div></div>
-                <div className="col col4">张学友</div>
-                <div className="col col5">06:02</div>
-                <div className="col col6"><button className="icn-src" /></div>
-              </li>
+              {preparelist && preparelist.map(item => (
+                <li key={item.id}>
+                  <div className="col col1"><i className="playicn" /></div>
+                  <div className="col col2">{item.name}</div>
+                  <div className="col col3"><div className="icns"><i className="icn icn1" /><i className="icn icn2" /><i className="icn icn3" /><i className="icn icn4" /></div></div>
+                  <div className="col col4">{item.ar[0].name}</div>
+                  <div className="col col5">{formatDuration(item.dt)}</div>
+                  <div className="col col6"><button className="icn-src" /></div>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="bline" />
