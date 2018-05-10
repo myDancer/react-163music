@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import PreplayList from './preplay-list'
 import { formatCurrentTime } from '../../common/js/util'
 import { changeCurrent } from '../../redux/preparelist.redux'
 import { fetchSong } from '../../redux/song.redux'
@@ -35,6 +36,8 @@ class PlayBar extends React.PureComponent {
       showVol: false,
     }
     this.refCB = this.refCB.bind(this)
+    this.prePlayCB = this.prePlayCB.bind(this)
+    this.showPrePlay = this.showPrePlay.bind(this)
     this.playOrPause = this.playOrPause.bind(this)
     this.handelDurationChange = this.handelDurationChange.bind(this)
     this.loadingAudio = this.loadingAudio.bind(this)
@@ -58,9 +61,19 @@ class PlayBar extends React.PureComponent {
       this.props.fetchSong()
     }
   }
+  // 显示或隐藏播放列表
+  showPrePlay() {
+    this.prePlayList.prePlayVisible()
+  }
+  // 播放列表的引用
+  prePlayCB(ref) {
+    this.prePlayList = ref
+  }
+  // audio的引用
   refCB(ref) {
     this.audio = ref
   }
+  // 显示音量调节
   showVolPanel() {
     this.setState({ showVol: !this.state.showVol })
   }
@@ -238,7 +251,7 @@ class PlayBar extends React.PureComponent {
               <button className="oper-btn icn-vol" onClick={this.showVolPanel} />
               <button onClick={this.switchCycleMode} className={`oper-btn icn-cycleMode${this.state.cycleMode}`} />
               <span className="add">
-                <button className="oper-btn icn-list">0</button>
+                <button onClick={this.showPrePlay} className="oper-btn icn-list">0</button>
               </span>
             </div>
           </div>
@@ -248,6 +261,7 @@ class PlayBar extends React.PureComponent {
             </div>
             <div className="updown-right" />
           </div>
+          <PreplayList onRef={this.prePlayCB} />
         </div>
       </div>
     )
