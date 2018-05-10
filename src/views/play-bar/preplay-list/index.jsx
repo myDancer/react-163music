@@ -2,14 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { formatDuration } from '../../../common/js/util'
 import { changeCurrent } from '../../../redux/preparelist.redux'
+import { fetchLyric } from '../../../redux/lyric.redux'
 import './style.styl'
 
 @connect( // 将store和组件联系在一起
   state => ({ // mapStateToProps
     prepareObj: state.prepareListReducer,
+    lyricObj: state.lyricReducer,
   }),
   { // mapDispatchToProps
-    changeCurrent,
+    changeCurrent, fetchLyric,
   },
 )
 class PreplayList extends React.Component {
@@ -42,7 +44,7 @@ class PreplayList extends React.Component {
             <ul>
               {preparelist && preparelist.map(item => (
                 <li key={item.id}>
-                  <div className="col col1"><i className="playicn" /></div>
+                  <div className="col col1"><i className="playicn" style={{ display: current.id === item.id ? 'block' : 'none' }} /></div>
                   <div className="col col2">{item.name}</div>
                   <div className="col col3"><div className="icns"><i className="icn icn1" /><i className="icn icn2" /><i className="icn icn3" /><i className="icn icn4" /></div></div>
                   <div className="col col4">{item.ar[0].name}</div>

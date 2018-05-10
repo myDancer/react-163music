@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PreplayList from './preplay-list'
 import { formatCurrentTime } from '../../common/js/util'
-import { changeCurrent } from '../../redux/preparelist.redux'
+import { changeCurrent, changeCurIndex } from '../../redux/preparelist.redux'
 import { fetchSong } from '../../redux/song.redux'
 import './style.styl'
 
@@ -13,7 +13,7 @@ import './style.styl'
     prepareObj: state.prepareListReducer,
   }),
   { // mapDispatchToProps
-    fetchSong, changeCurrent,
+    fetchSong, changeCurrent, changeCurIndex,
   },
 )
 class PlayBar extends React.PureComponent {
@@ -51,6 +51,8 @@ class PlayBar extends React.PureComponent {
     this.changeVol = this.changeVol.bind(this)
     this.tranVol = this.tranVol.bind(this)
     this.showVolPanel = this.showVolPanel.bind(this)
+    this.prev = this.prev.bind(this)
+    this.next = this.next.bind(this)
   }
   componentDidMount() {
     window.addEventListener('mouseup', this.handleMouseUp)
@@ -146,6 +148,30 @@ class PlayBar extends React.PureComponent {
       currentTime: formatCurrentTime(this.audio.currentTime),
     })
   }
+  // 切换上一首歌
+  prev() {
+    const { preparelist, currentIndex } = this.props.prepareObj
+    if (currentIndex !== 0) {
+      this.pause()
+      this.setState({ currentTime: '00:00', currWidth: '0%', bufferPercent: '0%' })
+      this.audio.currentTime = 0
+      this.props.changeCurrent(preparelist[currentIndex - 1])
+      this.props.changeCurIndex(currentIndex - 1)
+      this.props.fetchSong(preparelist[currentIndex - 1].id)
+    }
+  }
+  // 切换下一首歌
+  next() {
+    const { preparelist, currentIndex } = this.props.prepareObj
+    if (currentIndex < preparelist.length - 1) {
+      this.pause()
+      this.setState({ currentTime: '00:00', currWidth: '0%', bufferPercent: '0%' })
+      this.audio.currentTime = 0
+      this.props.changeCurrent(preparelist[currentIndex + 1])
+      this.props.changeCurIndex(currentIndex + 1)
+      this.props.fetchSong(preparelist[currentIndex + 1].id)
+    }
+  }
   // 播放暂停按钮事件
   playOrPause() {
     if (!this.state.playing) {
@@ -203,7 +229,7 @@ class PlayBar extends React.PureComponent {
   }
   render() {
     const { data } = this.props.songObj
-    const { current } = this.props.prepareObj
+    const { current, preparelist } = this.props.prepareObj
     return (
       <div className="playbar-wrap" onMouseMove={this.handleMouseMove} style={{ userSelect: this.state.sliderOption.isDrag ? 'none' : 'text' }}>
         <audio controls="controls" src={data.length && data[0].url} ref={this.refCB} style={{ display: 'none' }} onProgress={this.handleProgress} onLoadedData={this.loadingAudio} onCanPlay={this.handleCanPlay} onLoadStart={this.loadingAudio} onDurationChange={this.handelDurationChange} />
@@ -211,9 +237,9 @@ class PlayBar extends React.PureComponent {
           <div className="bg" />
           <div className="wrap" id="g_player">
             <div className="btns">
-              <button className="play-btn btn-p" title="上一首">上一首</button>
+              <button onClick={this.prev} className="play-btn btn-p" title="上一首">上一首</button>
               <button onClick={this.playOrPause} className={this.state.playing ? 'play-btn btn-paused' : 'play-btn btn-play'} title="播放/暂停">播放/暂停</button>
-              <button className="play-btn btn-n" title="下一首">下一首</button>
+              <button onClick={this.next} className="play-btn btn-n" title="下一首">下一首</button>
             </div>
             <div className="headimg"><img alt="歌手头像" src={`${current.al && current.al.picUrl}?param=34y34`} /></div>
             <div className="play">
@@ -251,7 +277,7 @@ class PlayBar extends React.PureComponent {
               <button className="oper-btn icn-vol" onClick={this.showVolPanel} />
               <button onClick={this.switchCycleMode} className={`oper-btn icn-cycleMode${this.state.cycleMode}`} />
               <span className="add">
-                <button onClick={this.showPrePlay} className="oper-btn icn-list">0</button>
+                <button onClick={this.showPrePlay} className="oper-btn icn-list">{preparelist.length}</button>
               </span>
             </div>
           </div>

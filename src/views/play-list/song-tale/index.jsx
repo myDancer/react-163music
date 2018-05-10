@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { formatDuration } from '../../../common/js/util'
-import { changeCurrent } from '../../../redux/preparelist.redux'
+import { changeCurrent, addPrepareList, changeCurIndex } from '../../../redux/preparelist.redux'
 import { fetchSong } from '../../../redux/song.redux'
 import './style.styl'
 
@@ -11,7 +11,7 @@ import './style.styl'
     prepareObj: state.prepareListReducer,
   }),
   { // mapDispatchToProps
-    changeCurrent, fetchSong,
+    changeCurrent, fetchSong, addPrepareList, changeCurIndex,
   },
 )
 export default class SongInfo extends React.Component {
@@ -21,6 +21,8 @@ export default class SongInfo extends React.Component {
   }
   playMuisc(item) {
     this.props.changeCurrent(item)
+    this.props.addPrepareList(item)
+    this.props.changeCurIndex(this.props.prepareObj.preparelist.length)
     this.props.fetchSong(item.id)
   }
   render() {

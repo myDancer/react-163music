@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
-import { changeCurrent } from '../../../redux/preparelist.redux'
+import { changeCurrent, addPrepareList, changeCurIndex } from '../../../redux/preparelist.redux'
 import { fetchSong } from '../../../redux/song.redux'
 import './style.styl'
 
@@ -9,7 +9,6 @@ const parseLyric = (lyricStr) => {
   let lyricArry = []
   const lyric = lyricStr.replace(/\[\d{2}[:.]\d{2}.\d{1,3}\]/g, '')
   lyricArry = lyric.split('\n')
-  console.log(lyricArry)
   return lyricArry
 }
 @connect( // 将store和组件联系在一起
@@ -17,7 +16,7 @@ const parseLyric = (lyricStr) => {
     prepareObj: state.prepareListReducer,
   }),
   { // mapDispatchToProps
-    changeCurrent, fetchSong,
+    changeCurrent, fetchSong, addPrepareList, changeCurIndex,
   },
 )
 class SongInfo extends React.Component {
@@ -38,6 +37,8 @@ class SongInfo extends React.Component {
   }
   playMusic() {
     this.props.changeCurrent(this.props.songs[0])
+    this.props.addPrepareList(this.props.songs[0])
+    this.props.changeCurIndex(this.props.prepareObj.preparelist.length)
     this.props.fetchSong(this.props.match.params.id)
   }
   handleMouseOver() {

@@ -1,9 +1,12 @@
 // constant
 const ADD_PREPARE = 'ADD_PREPARE'
 const CHANGE_CURRENT = 'CHANGE_CURRENT'
+const CHANGE_CURINDEX = 'CHANGE_CURINDEX'
 
 // initial State
 const initState = {
+  currentIndex: 0,
+  autoPlay: false,
   current: {
     name: '我与你',
     id: 29715187,
@@ -52,7 +55,6 @@ const initState = {
       pic: 109951163281534780,
     },
   }],
-  autoPlay: false,
 }
 
 // reducer
@@ -61,14 +63,18 @@ export const prepareListReducer = (state = initState, action) => {
     case ADD_PREPARE:
       return {
         ...state,
-        preparelist: state.preparelist.concat(action.payload),
+        preparelist: [...state.preparelist, action.payload],
       }
     case CHANGE_CURRENT:
       return {
         ...state,
         autoPlay: true,
         current: action.payload,
-        preparelist: [...state.preparelist, action.payload],
+      }
+    case CHANGE_CURINDEX:
+      return {
+        ...state,
+        currentIndex: action.payload,
       }
     default:
       return {
@@ -87,6 +93,11 @@ const changeCurentAct = current => ({
   type: CHANGE_CURRENT,
   payload: current,
 })
+// 改变当前播放index
+const changeCurIndexAct = index => ({
+  type: CHANGE_CURINDEX,
+  payload: index,
+})
 
 export const addPrepareList = prepareList => (dispatch) => {
   dispatch(addPrepareAct(prepareList))
@@ -94,4 +105,8 @@ export const addPrepareList = prepareList => (dispatch) => {
 
 export const changeCurrent = current => (dispatch) => {
   dispatch(changeCurentAct(current))
+}
+
+export const changeCurIndex = index => (dispatch) => {
+  dispatch(changeCurIndexAct(index))
 }
