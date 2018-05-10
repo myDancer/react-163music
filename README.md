@@ -31,3 +31,7 @@
 浏览器打开[http://music.liangjiang.win](http://music.liangjiang.win)
 
 ![Mou icon](./preview.png)
+
+##  接口
+
+网易云音乐接口，传送门：https://github.com/Binaryify/NeteaseCloudMusicApi
