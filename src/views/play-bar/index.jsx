@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import PreplayList from './preplay-list'
 import { formatCurrentTime } from '../../common/js/util'
 import { changeCurrent, changeCurIndex } from '../../redux/preparelist.redux'
+import { fetchCurLyric } from '../../redux/currentlyric.redux'
 import { fetchSong } from '../../redux/song.redux'
 import './style.styl'
 
@@ -13,7 +14,7 @@ import './style.styl'
     prepareObj: state.prepareListReducer,
   }),
   { // mapDispatchToProps
-    fetchSong, changeCurrent, changeCurIndex,
+    fetchSong, changeCurrent, changeCurIndex, fetchCurLyric,
   },
 )
 class PlayBar extends React.PureComponent {
@@ -158,6 +159,7 @@ class PlayBar extends React.PureComponent {
       this.props.changeCurrent(preparelist[currentIndex - 1])
       this.props.changeCurIndex(currentIndex - 1)
       this.props.fetchSong(preparelist[currentIndex - 1].id)
+      this.props.fetchCurLyric(preparelist[currentIndex - 1].id)
     }
   }
   // 切换下一首歌
@@ -170,6 +172,7 @@ class PlayBar extends React.PureComponent {
       this.props.changeCurrent(preparelist[currentIndex + 1])
       this.props.changeCurIndex(currentIndex + 1)
       this.props.fetchSong(preparelist[currentIndex + 1].id)
+      this.props.fetchCurLyric(preparelist[currentIndex + 1].id)
     }
   }
   // 播放暂停按钮事件

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import { changeCurrent, addPrepareList, changeCurIndex } from '../../../redux/preparelist.redux'
+import { fetchCurLyric } from '../../../redux/currentlyric.redux'
 import { fetchSong } from '../../../redux/song.redux'
 import './style.styl'
 
@@ -16,7 +17,7 @@ const parseLyric = (lyricStr) => {
     prepareObj: state.prepareListReducer,
   }),
   { // mapDispatchToProps
-    changeCurrent, fetchSong, addPrepareList, changeCurIndex,
+    changeCurrent, fetchSong, addPrepareList, changeCurIndex, fetchCurLyric,
   },
 )
 class SongInfo extends React.Component {
@@ -40,6 +41,7 @@ class SongInfo extends React.Component {
     this.props.addPrepareList(this.props.songs[0])
     this.props.changeCurIndex(this.props.prepareObj.preparelist.length)
     this.props.fetchSong(this.props.match.params.id)
+    this.props.fetchCurLyric(this.props.match.params.id)
   }
   handleMouseOver() {
     this.setState({ showbg: 'plyhover' })
