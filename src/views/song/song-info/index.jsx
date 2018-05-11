@@ -23,11 +23,9 @@ const parseLyric = (lyricStr) => {
 class SongInfo extends React.Component {
   constructor(props) {
     super(props)
-    this.handleMouseOver = this.handleMouseOver.bind(this)
-    this.handleMouseOut = this.handleMouseOut.bind(this)
     this.playMusic = this.playMusic.bind(this)
     this.extendsLyr = this.extendsLyr.bind(this)
-    this.state = { showbg: 'ply', moreLyr: false }
+    this.state = { moreLyr: false }
   }
   extendsLyr() {
     if (this.state.moreLyr) {
@@ -42,12 +40,6 @@ class SongInfo extends React.Component {
     this.props.changeCurIndex(this.props.prepareObj.preparelist.length)
     this.props.fetchSong(this.props.match.params.id)
     this.props.fetchCurLyric(this.props.match.params.id)
-  }
-  handleMouseOver() {
-    this.setState({ showbg: 'plyhover' })
-  }
-  handleMouseOut() {
-    this.setState({ showbg: 'ply' })
   }
   render() {
     const { songs } = this.props
@@ -86,7 +78,7 @@ class SongInfo extends React.Component {
             所属专辑：<span><Link to="album/123">{songs.length && songs[0].al.name}</Link></span>
           </p>
           <div className="btn-group">
-            <a className="info-btn icn-blue" onClick={this.playMusic} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}><i className="btn-i icn-play"><em className={this.state.showbg} />播放</i></a>
+            <a className="info-btn icn-blue" onClick={this.playMusic} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}><i className="btn-i icn-play"><em className="ply" />播放</i></a>
             <a className="info-btn icn-white"><i className="btn-i icn-collect">收藏</i></a>
             <a className="info-btn icn-white"><i className="btn-i icn-share">分享</i></a>
             <a className="info-btn icn-white"><i className="btn-i icn-download">下载</i></a>
