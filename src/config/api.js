@@ -23,3 +23,8 @@ export function getLyric(id = '29715187') {
 export function playList(id) {
   return `http://api.mtnhao.com/toplist/detail/mm?id=${id}`
 }
+
+// 查找歌曲
+export function searchSong(offset, limit, keywords) {
+  return `http://api.mtnhao.com/search?offset=${offset}&limit=${limit}&keywords=${keywords}`
+}
