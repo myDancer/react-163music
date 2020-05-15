@@ -1,4 +1,4 @@
-# my-singer-music
+# react-163music
 
 ## 基于react全家桶实现的，仿网易云音乐PC端webapp
 用react完全仿照网易云音乐
